@@ -197,10 +197,7 @@ npm run dev
 # Deve carregar a interface do Hánotas
 ```
 
-**Como deve aparecer:**
-- Interface elegante com login
-- Logo do Hánotas carregado
-- Formulário de autenticação funcional
+#### **Tela de Login Elegante e Segura**
 
 ![Tela de Login](images/login-screen.png)
 
@@ -213,6 +210,8 @@ npm run dev
 4. Clique em "Testar Modelo Selecionado"
 5. Deve mostrar "✅ Conexão bem-sucedida"
 
+#### **Configuração Avançada de API Groq**
+
 ![Configuração de API](images/api-config.png)
 
 ### **4. Teste de Upload**
@@ -223,6 +222,8 @@ npm run dev
 3. Arraste e solte o arquivo ou clique para selecionar
 4. Verifique se o arquivo é aceito (máximo 100MB)
 5. Confirme se aparece na lista "Arquivos a Processar"
+
+#### **Interface de Upload Intuitiva**
 
 ![Upload de Arquivos](images/file-upload.png)
 
@@ -235,6 +236,8 @@ npm run dev
 4. Acompanhe os logs dos agentes CrewAI
 5. Verifique se recebe uma resposta detalhada
 6. Teste as sugestões inteligentes automáticas
+
+#### **Sistema de Análise Fiscal Inteligente**
 
 ![Interface de Análise](images/analysis-interface.png)
 
@@ -487,6 +490,8 @@ pip-audit
 - **Como Funciona**: Fluxo de processamento explicado
 - **Tecnologias**: CrewAI + Groq API + FastAPI
 
+#### **Central de Ajuda Completa e Interativa**
+
 ![Central de Ajuda](images/help-center.png)
 
 ### **Sobre Nossa Equipe**
@@ -497,6 +502,8 @@ pip-audit
 - **Tecnologias**: CrewAI, RAG, modelos avançados de IA
 - **Contato**: Informações completas da equipe
 - **Juliana**: Responsável principal do projeto
+
+#### **Equipe Multidisciplinar - Grupo 9**
 
 ![Sobre Nós - Grupo 9](images/about-us.png)
 
