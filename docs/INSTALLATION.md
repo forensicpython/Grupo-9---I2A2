@@ -197,18 +197,46 @@ npm run dev
 # Deve carregar a interface do Hánotas
 ```
 
-### **3. Teste da API Groq**
-```bash
-# No frontend, vá para "Configurações"
-# Clique em "Testar Conexão"
-# Deve mostrar "✅ Conexão bem-sucedida"
-```
+**Como deve aparecer:**
+- Interface elegante com login
+- Logo do Hánotas carregado
+- Formulário de autenticação funcional
 
-### **4. Teste Completo**
+![Tela de Login](images/login-screen.png)
+
+### **3. Teste da API Groq**
+
+**Configuração da API:**
+1. No frontend, acesse a seção "Configurações"
+2. Insira sua chave API do Groq
+3. Selecione o modelo desejado (recomendado: Qwen QWQ 32B)
+4. Clique em "Testar Modelo Selecionado"
+5. Deve mostrar "✅ Conexão bem-sucedida"
+
+![Configuração de API](images/api-config.png)
+
+### **4. Teste de Upload**
+
+**Como testar o upload de arquivos:**
+1. Prepare um arquivo ZIP com CSVs de notas fiscais
+2. Acesse a área de upload
+3. Arraste e solte o arquivo ou clique para selecionar
+4. Verifique se o arquivo é aceito (máximo 100MB)
+5. Confirme se aparece na lista "Arquivos a Processar"
+
+![Upload de Arquivos](images/file-upload.png)
+
+### **5. Teste Completo de Análise**
+
+**Fluxo completo de teste:**
 1. Faça upload de um arquivo ZIP com CSVs
 2. Digite uma pergunta: "Quantas notas fiscais temos?"
 3. Monitore o processamento no terminal
-4. Verifique se recebe uma resposta
+4. Acompanhe os logs dos agentes CrewAI
+5. Verifique se recebe uma resposta detalhada
+6. Teste as sugestões inteligentes automáticas
+
+![Interface de Análise](images/analysis-interface.png)
 
 ---
 
@@ -449,7 +477,30 @@ pip-audit
 
 ## 📞 **Suporte**
 
-### **Recursos de Ajuda**
+### **Central de Ajuda Integrada**
+
+**O Hánotas possui uma central de ajuda completa acessível diretamente na interface:**
+
+- **Início Rápido**: 6 passos visuais para começar
+- **Sobre o Hánotas**: Descrição técnica completa
+- **Agentes Inteligentes**: Detalhamento dos 7 agentes CrewAI
+- **Como Funciona**: Fluxo de processamento explicado
+- **Tecnologias**: CrewAI + Groq API + FastAPI
+
+![Central de Ajuda](images/help-center.png)
+
+### **Sobre Nossa Equipe**
+
+**Conheça o Grupo 9 - Equipe multidisciplinar do desafio I2A2:**
+
+- **Missão**: Desenvolver agentes inteligentes para análise fiscal
+- **Tecnologias**: CrewAI, RAG, modelos avançados de IA
+- **Contato**: Informações completas da equipe
+- **Juliana**: Responsável principal do projeto
+
+![Sobre Nós - Grupo 9](images/about-us.png)
+
+### **Recursos de Ajuda Externa**
 - 📖 **Documentação**: [README.md](../README.md)
 - 🐛 **Issues**: [GitHub Issues](https://github.com/forensicpython/Grupo-9---I2A2/issues)
 - 💬 **Discussões**: [GitHub Discussions](https://github.com/forensicpython/Grupo-9---I2A2/discussions)
