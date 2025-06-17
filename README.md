@@ -56,7 +56,7 @@ O **Instaprice** é um sistema inovador que utiliza **7 agentes de IA especializ
 ### 📁 **Interface de Upload Intuitiva**
 ![File Upload](docs/images/file-upload.png)
 
-### 🤖 **Sistema de Análise Fiscal Inteligente**
+### 🤖 **Interface de diálogo com suas notas fiscais**
 ![Analysis Interface](docs/images/analysis-interface.png)
 
 </div>
