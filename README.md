@@ -1,8 +1,8 @@
-# 🎯 Hanotas - Sistema Inteligente de Análise Fiscal
+# 🎯 Instaprice - Sistema Inteligente de Análise Fiscal
 
 <div align="center">
 
-![Hanotas Logo](./frontend/src/assets/Hanotas_2.png)
+![Instaprice Logo](./images/Instaprice.png)
 
 [![Made with CrewAI](https://img.shields.io/badge/Made%20with-CrewAI-blue?style=for-the-badge)](https://crewai.com/)
 [![React](https://img.shields.io/badge/React-19.0.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
@@ -21,7 +21,7 @@
 
 ## 🌟 **Sobre o Projeto**
 
-O **Hanotas** é um sistema inovador que utiliza **7 agentes de IA especializados** para processar e analisar documentos fiscais brasileiros de forma autônoma e inteligente. Desenvolvido com tecnologias modernas como **CrewAI**, **React** e **FastAPI**, oferece uma interface intuitiva para extrair insights valiosos de notas fiscais.
+O **Instaprice** é um sistema inovador que utiliza **7 agentes de IA especializados** para processar e analisar documentos fiscais brasileiros de forma autônoma e inteligente. Desenvolvido com tecnologias modernas como **CrewAI**, **React** e **FastAPI**, oferece uma interface intuitiva para extrair insights valiosos de notas fiscais.
 
 ### ✨ **Principais Funcionalidades**
 

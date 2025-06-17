@@ -1,13 +1,13 @@
 """
-Configurações centralizadas do sistema Hanotas com validação robusta.
+Configurações centralizadas do sistema Instaprice com validação robusta.
 """
 from pydantic import BaseSettings, Field, validator
 from typing import Optional
 import os
 from pathlib import Path
 
-class HanotasSettings(BaseSettings):
-    """Configurações do sistema Hanotas com validação automática."""
+class InstapriceSettings(BaseSettings):
+    """Configurações do sistema Instaprice com validação automática."""
     
     # API Configuration
     groq_api_key: str = Field(..., description="Chave da API Groq (obrigatória)")
@@ -96,9 +96,9 @@ class HanotasSettings(BaseSettings):
             raise EnvironmentError(f"Erro na validação do ambiente: {e}")
 
 # Instância global das configurações
-settings = HanotasSettings()
+settings = InstapriceSettings()
 
-def get_settings() -> HanotasSettings:
+def get_settings() -> InstapriceSettings:
     """Retorna as configurações do sistema."""
     return settings
 

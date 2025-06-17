@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Setup script para o projeto Hanotas
+Setup script para o projeto Instaprice
 Configura o ambiente e instala dependências
 """
 
@@ -35,7 +35,7 @@ def run_command(command, description):
         return False, str(e)
 
 def main():
-    print_header("HANOTAS SETUP - CONFIGURAÇÃO DO AMBIENTE")
+    print_header("INSTAPRICE SETUP - CONFIGURAÇÃO DO AMBIENTE")
     
     # Verifica Python
     python_version = sys.version_info
@@ -94,7 +94,7 @@ def main():
     
     # Executa teste de validação
     print_header("EXECUTANDO TESTES DE VALIDAÇÃO")
-    success, output = run_command("python test_hanotas.py", "Validando configuração do projeto")
+    success, output = run_command("python test_instaprice.py", "Validando configuração do projeto")
     
     if success:
         print_step("Projeto configurado com sucesso!", "SUCESSO")
@@ -107,7 +107,7 @@ def main():
         print("\n🔧 VERIFIQUE:")
         print("1. Variáveis de ambiente no arquivo .env")
         print("2. Dependências instaladas corretamente")
-        print("3. Execute: python test_hanotas.py para diagnóstico")
+        print("3. Execute: python test_instaprice.py para diagnóstico")
 
 if __name__ == "__main__":
     main()

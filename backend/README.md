@@ -1,4 +1,4 @@
-# 🤖 Hanotas - Sistema Inteligente de Análise de Notas Fiscais
+# 🤖 Instaprice - Sistema Inteligente de Análise de Notas Fiscais
 
 Sistema multi-agente baseado em CrewAI para análise inteligente de notas fiscais brasileiras. Utiliza processamento de linguagem natural para responder perguntas sobre dados fiscais de forma humanizada e inteligente.
 
@@ -33,7 +33,7 @@ cp .env.example .env
 
 #### Validar instalação:
 ```bash
-python test_hanotas.py
+python test_instaprice.py
 ```
 
 ## 🎯 Como Usar
@@ -172,13 +172,13 @@ pip install -r requirements.txt
 ### Logs e Diagnóstico
 ```bash
 # Execute diagnóstico completo
-python test_hanotas.py
+python test_instaprice.py
 
 # Verifique logs de execução
 ls -la logs/
 
 # Analise logs específicos
-tail -f logs/hanotas_*.log
+tail -f logs/instaprice_*.log
 ```
 
 ## 🚀 Melhorias Implementadas
@@ -203,7 +203,7 @@ tail -f logs/hanotas_*.log
 1. Faça um fork do projeto
 2. Crie uma branch para sua feature
 3. Implemente suas melhorias
-4. Execute os testes: `python test_hanotas.py`
+4. Execute os testes: `python test_instaprice.py`
 5. Envie um pull request
 
 ## 📄 Licença
@@ -213,7 +213,7 @@ Este projeto está sob licença MIT. Veja o arquivo LICENSE para mais detalhes.
 ## 🆘 Suporte
 
 Para suporte e dúvidas:
-- Execute `python test_hanotas.py` para diagnóstico
+- Execute `python test_instaprice.py` para diagnóstico
 - Verifique logs em `logs/`
 - Consulte a documentação técnica do projeto
 

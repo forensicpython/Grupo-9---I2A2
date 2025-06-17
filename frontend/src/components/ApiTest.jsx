@@ -150,7 +150,7 @@ const ApiTest = ({ onStatusChange, onLog, onApiConfigured }) => {
                 href="https://console.groq.com/keys" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="ml-2 text-hanotas-primary hover:text-white transition-colors"
+                className="ml-2 text-instaprice-primary hover:text-white transition-colors"
               >
                 <ExternalLink className="w-3 h-3" />
               </a>
@@ -163,7 +163,7 @@ const ApiTest = ({ onStatusChange, onLog, onApiConfigured }) => {
                 placeholder="gsk_..."
                 className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg 
                          text-white placeholder-gray-400 focus:outline-none focus:ring-2 
-                         focus:ring-hanotas-primary focus:border-transparent transition-all pr-20"
+                         focus:ring-instaprice-primary focus:border-transparent transition-all pr-20"
               />
               <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex space-x-2">
                 <button
@@ -184,7 +184,7 @@ const ApiTest = ({ onStatusChange, onLog, onApiConfigured }) => {
               </div>
             </div>
             <p className="text-xs text-gray-500">
-              Obtenha sua chave em: <span className="text-hanotas-primary">console.groq.com</span>
+              Obtenha sua chave em: <span className="text-instaprice-primary">console.groq.com</span>
             </p>
           </div>
 
@@ -197,7 +197,7 @@ const ApiTest = ({ onStatusChange, onLog, onApiConfigured }) => {
               value={selectedModel}
               onChange={(e) => setSelectedModel(e.target.value)}
               className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg 
-                       text-white focus:outline-none focus:ring-2 focus:ring-hanotas-primary 
+                       text-white focus:outline-none focus:ring-2 focus:ring-instaprice-primary 
                        focus:border-transparent transition-all"
             >
               {models.map(model => (
@@ -214,9 +214,9 @@ const ApiTest = ({ onStatusChange, onLog, onApiConfigured }) => {
               onClick={testConnection}
               disabled={testing || !apiKey.trim()}
               className="w-full flex items-center justify-center space-x-2 px-4 py-3 
-                       bg-gradient-to-r from-hanotas-primary to-hanotas-secondary 
+                       bg-gradient-to-r from-instaprice-primary to-instaprice-secondary 
                        text-white rounded-lg font-medium hover:shadow-lg 
-                       hover:shadow-hanotas-primary/25 transition-all duration-300 
+                       hover:shadow-instaprice-primary/25 transition-all duration-300 
                        disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {testing ? (
@@ -295,7 +295,7 @@ const ApiTest = ({ onStatusChange, onLog, onApiConfigured }) => {
                     className={`p-3 rounded-lg border transition-all cursor-pointer ${
                       model.status === 'success' 
                         ? selectedModel === model.id 
-                          ? 'border-hanotas-primary bg-hanotas-primary/10' 
+                          ? 'border-instaprice-primary bg-instaprice-primary/10' 
                           : 'border-green-500/30 bg-green-500/5 hover:bg-green-500/10'
                         : 'border-red-500/30 bg-red-500/5'
                     }`}
@@ -316,7 +316,7 @@ const ApiTest = ({ onStatusChange, onLog, onApiConfigured }) => {
                         )}
                       </div>
                       {selectedModel === model.id && model.status === 'success' && (
-                        <div className="w-2 h-2 bg-hanotas-primary rounded-full"></div>
+                        <div className="w-2 h-2 bg-instaprice-primary rounded-full"></div>
                       )}
                     </div>
                   </div>

@@ -52,7 +52,7 @@ async def test_api_call():
     try:
         # Upload de arquivo
         async with aiohttp.ClientSession() as session:
-            with open('/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Hanotas_2/backend/202401_NFs.zip', 'rb') as f:
+            with open('/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Instaprice_2/backend/202401_NFs.zip', 'rb') as f:
                 data = aiohttp.FormData()
                 data.add_field('file', f, filename='202401_NFs.zip')
                 

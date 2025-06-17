@@ -1,5 +1,5 @@
 """
-🕵️ OPERAÇÃO GRAMPO DIGITAL - Sistema de Vigilância de Agentes Hanotas
+🕵️ OPERAÇÃO GRAMPO DIGITAL - Sistema de Vigilância de Agentes Instaprice
 ====================================================================
 
 Módulo ultra-secreto para interceptação e documentação de conversas entre agentes.
@@ -33,7 +33,7 @@ class EspionDigital:
     🔍 Interceptador de Conversas de Agentes AI
     
     Sistema de vigilância para monitoramento e documentação de todas as
-    interações entre agentes do sistema Hanotas. Código nome: "WIRE_TAP_AI"
+    interações entre agentes do sistema Instaprice. Código nome: "WIRE_TAP_AI"
     """
     
     def __init__(self):
@@ -193,7 +193,7 @@ class EspionDigital:
             Nome criativo do arquivo PDF
         """
         nomes_investigativos = [
-            f"GRAMPO_DIGITAL_HANOTAS_{self.session_id}.pdf",
+            f"GRAMPO_DIGITAL_INSTAPRICE_{self.session_id}.pdf",
             f"OPERACAO_EAVESDROP_{self.session_id}.pdf", 
             f"WIRE_TAP_AI_SURVEILLANCE_{self.session_id}.pdf",
             f"INTERCEPTACAO_AGENTES_{self.session_id}.pdf",
@@ -290,7 +290,7 @@ class EspionDigital:
         
         # === CABEÇALHO ===
         story.append(Paragraph("🕵️ OPERAÇÃO GRAMPO DIGITAL", titulo_style))
-        story.append(Paragraph("Sistema de Vigilância de Agentes Hanotas", subtitulo_style))
+        story.append(Paragraph("Sistema de Vigilância de Agentes Instaprice", subtitulo_style))
         story.append(Spacer(1, 20))
         
         # === METADADOS ===
@@ -391,7 +391,7 @@ Classificação: ULTRA-SECRETO"""
         story.append(PageBreak())
         story.append(Paragraph("🔒 FIM DO RELATÓRIO", titulo_style))
         footer_text = f"""Este documento foi gerado automaticamente pelo sistema de vigilância 
-de agentes AI do projeto Hanotas. Todas as comunicações foram 
+de agentes AI do projeto Instaprice. Todas as comunicações foram 
 interceptadas e documentadas conforme protocolo EAVESDROP.
 
 ⚠️ CLASSIFICAÇÃO: ULTRA-SECRETO ⚠️
@@ -472,7 +472,7 @@ Mantenha este documento em local seguro"""
         caminho_saida = os.path.join(os.getcwd(), nome_arquivo)
         
         with open(caminho_saida, 'w', encoding='utf-8') as f:
-            f.write("🕵️ OPERAÇÃO GRAMPO DIGITAL - HANOTAS\n")
+            f.write("🕵️ OPERAÇÃO GRAMPO DIGITAL - INSTAPRICE\n")
             f.write("=" * 50 + "\n\n")
             f.write(f"Sessão: {self.session_id}\n")
             f.write(f"Total de interceptações: {len(self.conversas_interceptadas)}\n\n")
@@ -532,9 +532,9 @@ class InterceptadorCrewAI:
 
 
 # Função utilitária para uso fácil
-def criar_espiao_hanotas() -> EspionDigital:
+def criar_espiao_instaprice() -> EspionDigital:
     """
-    🕵️ Factory function para criar um espião dos agentes Hanotas
+    🕵️ Factory function para criar um espião dos agentes Instaprice
     
     Returns:
         Instância configurada do EspionDigital
@@ -542,18 +542,18 @@ def criar_espiao_hanotas() -> EspionDigital:
     return EspionDigital()
 
 
-def interceptar_conversas_hanotas(funcao_execucao, *args, **kwargs) -> tuple:
+def interceptar_conversas_instaprice(funcao_execucao, *args, **kwargs) -> tuple:
     """
-    🎧 Decorator/wrapper para interceptar conversas durante execução do Hanotas
+    🎧 Decorator/wrapper para interceptar conversas durante execução do Instaprice
     
     Args:
-        funcao_execucao: Função que executa o sistema Hanotas
+        funcao_execucao: Função que executa o sistema Instaprice
         *args, **kwargs: Argumentos para a função
         
     Returns:
         Tuple com (resultado_execucao, caminho_pdf_gerado)
     """
-    espiao = criar_espiao_hanotas()
+    espiao = criar_espiao_instaprice()
     
     # Buffer para capturar TUDO que aparece no terminal
     captured_output = io.StringIO()

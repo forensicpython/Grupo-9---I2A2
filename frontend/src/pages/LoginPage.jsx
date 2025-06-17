@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Eye, EyeOff, User, Lock, ArrowLeft } from 'lucide-react'
-import hanotas from '../assets/Hanotas_2.png'
+import instaprice from '../assets/Instaprice_2.png'
 
 const LoginPage = ({ setIsAuthenticated, setUser }) => {
   const [showPassword, setShowPassword] = useState(false)
@@ -40,7 +40,7 @@ const LoginPage = ({ setIsAuthenticated, setUser }) => {
     <div className="min-h-screen flex items-center justify-center p-4">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-hanotas-primary/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-instaprice-primary/20 to-transparent"></div>
       </div>
 
       {/* Main Content */}
@@ -48,8 +48,8 @@ const LoginPage = ({ setIsAuthenticated, setUser }) => {
         {/* Logo Section */}
         <div className="text-center mb-8">
           <img 
-            src={hanotas} 
-            alt="Hanotas" 
+            src={instaprice} 
+            alt="Instaprice" 
             className="h-40 mx-auto mb-6 drop-shadow-2xl"
           />
           <h1 className="text-2xl font-bold text-white mb-2">Login</h1>
@@ -71,7 +71,7 @@ const LoginPage = ({ setIsAuthenticated, setUser }) => {
                 placeholder="Digite seu usuário"
                 className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg 
                          text-white placeholder-gray-400 focus:outline-none focus:ring-2 
-                         focus:ring-hanotas-primary focus:border-transparent transition-all"
+                         focus:ring-instaprice-primary focus:border-transparent transition-all"
                 required
               />
             </div>
@@ -90,7 +90,7 @@ const LoginPage = ({ setIsAuthenticated, setUser }) => {
                   placeholder="••••••••••••••••••••••••"
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg 
                            text-white placeholder-gray-400 focus:outline-none focus:ring-2 
-                           focus:ring-hanotas-primary focus:border-transparent transition-all pr-12"
+                           focus:ring-instaprice-primary focus:border-transparent transition-all pr-12"
                   required
                 />
                 <button
@@ -107,9 +107,9 @@ const LoginPage = ({ setIsAuthenticated, setUser }) => {
             {/* Login Button */}
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-hanotas-primary to-hanotas-secondary 
+              className="w-full bg-gradient-to-r from-instaprice-primary to-instaprice-secondary 
                        text-white py-3 px-4 rounded-lg font-medium hover:shadow-lg 
-                       hover:shadow-hanotas-primary/25 transition-all duration-300 
+                       hover:shadow-instaprice-primary/25 transition-all duration-300 
                        transform hover:scale-105"
             >
               ↗ Entrar
@@ -121,7 +121,7 @@ const LoginPage = ({ setIsAuthenticated, setUser }) => {
             <div className="text-center mb-4">
               <button
                 onClick={() => setShowDemo(!showDemo)}
-                className="flex items-center justify-center w-full text-sm text-hanotas-primary 
+                className="flex items-center justify-center w-full text-sm text-instaprice-primary 
                          hover:text-white transition-colors"
               >
                 ℹ Contas de Demonstração

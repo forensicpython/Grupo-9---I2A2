@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Hanotas - Sistema Inteligente de Análise de Notas Fiscais
+Instaprice - Sistema Inteligente de Análise de Notas Fiscais
 Versão melhorada com tratamento de erros, logging e ESPIONAGEM DE AGENTES 🕵️
 """
 
@@ -12,9 +12,9 @@ from dotenv import load_dotenv
 # Adiciona o diretório atual ao path
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
-from hanotas import Hanotas
+from instaprice import Instaprice
 from utils.logger import setup_logger, log_execution_step, log_error_with_context
-from tools.agent_surveillance import criar_espiao_hanotas, interceptar_conversas_hanotas
+from tools.agent_surveillance import criar_espiao_instaprice, interceptar_conversas_instaprice
 
 def validate_environment():
     """Valida configuração do ambiente"""
@@ -49,21 +49,21 @@ def validate_environment():
     logger.info("✅ Ambiente validado com sucesso")
     return True
 
-def executar_hanotas_com_analise(inputs):
-    """Função wrapper para executar Hanotas (usada pelo interceptador)"""
-    hanotas = Hanotas()
-    return hanotas.crew().kickoff(inputs=inputs)
+def executar_instaprice_com_analise(inputs):
+    """Função wrapper para executar Instaprice (usada pelo interceptador)"""
+    instaprice = Instaprice()
+    return instaprice.crew().kickoff(inputs=inputs)
 
 def main():
     """Função principal melhorada com ESPIONAGEM DE AGENTES 🕵️"""
     
-    print("🤖 HANOTAS - Sistema Inteligente de Análise de Notas Fiscais")
+    print("🤖 INSTAPRICE - Sistema Inteligente de Análise de Notas Fiscais")
     print("🕵️ VERSÃO COM INTERCEPTAÇÃO DE CONVERSAS DOS AGENTES")
     print("="*60)
     
     # Configura logger
     logger = setup_logger()
-    log_execution_step(logger, "Iniciando sistema Hanotas com espionagem ativada")
+    log_execution_step(logger, "Iniciando sistema Instaprice com espionagem ativada")
     
     try:
         # Valida ambiente
@@ -101,8 +101,8 @@ def main():
         log_execution_step(logger, "🎧 Iniciando interceptação das conversas dos agentes...")
         print("🎧 Iniciando interceptação das conversas dos agentes...")
         
-        # Executa Hanotas com interceptação ativa
-        result, pdf_espionagem = interceptar_conversas_hanotas(executar_hanotas_com_analise, inputs)
+        # Executa Instaprice com interceptação ativa
+        result, pdf_espionagem = interceptar_conversas_instaprice(executar_instaprice_com_analise, inputs)
         
         # Loga resultado
         log_execution_step(logger, "Análise concluída com sucesso")
@@ -112,7 +112,7 @@ def main():
         log_execution_step(logger, f"🕵️ Relatório de espionagem gerado: {pdf_espionagem}")
         
         # Verifica se arquivo de sugestões foi criado
-        arquivo_sugestoes = "sugestoes_hanotas.md"
+        arquivo_sugestoes = "sugestoes_instaprice.md"
         if os.path.exists(arquivo_sugestoes):
             log_execution_step(logger, f"Sugestões salvas em: {arquivo_sugestoes}")
         
@@ -127,7 +127,7 @@ def main():
         log_execution_step(logger, "Execução interrompida pelo usuário")
         print("\n⚠️ Execução interrompida pelo usuário")
     except Exception as e:
-        log_error_with_context(logger, e, "Execução principal do Hanotas")
+        log_error_with_context(logger, e, "Execução principal do Instaprice")
         print(f"\n❌ Erro durante execução: {str(e)}")
         print("🔍 Verifique os logs em logs/ para mais detalhes")
         sys.exit(1)

@@ -179,7 +179,7 @@ async def test_all_models():
     return results
 
 if __name__ == "__main__":
-    print("🧪 TESTE GROQ MODELS - HANOTAS")
+    print("🧪 TESTE GROQ MODELS - INSTAPRICE")
     print("="*60)
     
     # Executa o teste

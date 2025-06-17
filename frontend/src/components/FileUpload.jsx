@@ -61,8 +61,8 @@ const FileUpload = ({ onFileUpload, onLog }) => {
   const getBorderColor = () => {
     if (isDragAccept) return 'border-green-500 bg-green-500/10'
     if (isDragReject) return 'border-red-500 bg-red-500/10'
-    if (isDragActive) return 'border-hanotas-primary bg-hanotas-primary/10'
-    return 'border-gray-600 hover:border-hanotas-primary/50'
+    if (isDragActive) return 'border-instaprice-primary bg-instaprice-primary/10'
+    return 'border-gray-600 hover:border-instaprice-primary/50'
   }
 
   return (
@@ -82,9 +82,9 @@ const FileUpload = ({ onFileUpload, onLog }) => {
         <input {...getInputProps()} />
         
         <div className="space-y-4">
-          <div className="mx-auto w-16 h-16 bg-hanotas-primary/20 rounded-full 
+          <div className="mx-auto w-16 h-16 bg-instaprice-primary/20 rounded-full 
                          flex items-center justify-center">
-            <Upload className="w-8 h-8 text-hanotas-primary" />
+            <Upload className="w-8 h-8 text-instaprice-primary" />
           </div>
           
           <div>

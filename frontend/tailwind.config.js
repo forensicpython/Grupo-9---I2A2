@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'hanotas': {
+        'instaprice': {
           primary: '#4ECDC4',
           secondary: '#44A08D',
           dark: '#1a202c',

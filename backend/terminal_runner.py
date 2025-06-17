@@ -13,9 +13,9 @@ from datetime import datetime
 # Adiciona o diretório backend ao path
 sys.path.insert(0, os.path.dirname(__file__))
 
-async def run_hanotas_with_output(inputs, websocket_manager=None):
+async def run_instaprice_with_output(inputs, websocket_manager=None):
     """
-    Executa o Hanotas em subprocess e captura output real do terminal
+    Executa o Instaprice em subprocess e captura output real do terminal
     """
     try:
         # Cria script temporário para execução
@@ -24,7 +24,7 @@ import sys
 import os
 sys.path.insert(0, '{os.path.dirname(__file__)}')
 
-from hanotas import Hanotas
+from instaprice import Instaprice
 import json
 
 # Inputs recebidos
@@ -35,8 +35,8 @@ print(f"📋 Inputs: {{inputs}}")
 print("=" * 60)
 
 # Instancia e executa
-hanotas = Hanotas()
-resultado = hanotas.crew().kickoff(inputs=inputs)
+instaprice = Instaprice()
+resultado = instaprice.crew().kickoff(inputs=inputs)
 
 print("=" * 60)
 print("✅ Execução concluída!")
@@ -44,7 +44,7 @@ print(f"📊 Resultado: {{str(resultado)[:200]}}...")
 """
         
         # Salva script temporário
-        script_path = "/tmp/hanotas_runner.py"
+        script_path = "/tmp/instaprice_runner.py"
         with open(script_path, "w") as f:
             f.write(script_content)
         
@@ -102,13 +102,13 @@ print(f"📊 Resultado: {{str(resultado)[:200]}}...")
 if __name__ == "__main__":
     # Teste direto
     test_inputs = {
-        'caminho_zip': '/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Hanotas_2/backend/202401_NFs.zip',
+        'caminho_zip': '/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Instaprice_2/backend/202401_NFs.zip',
         'pergunta_usuario': 'Teste de captura de terminal em tempo real',
-        'diretorio_dados': '/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Hanotas_2/backend/dados/notasfiscais'
+        'diretorio_dados': '/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Instaprice_2/backend/dados/notasfiscais'
     }
     
     async def test():
-        result = await run_hanotas_with_output(test_inputs)
+        result = await run_instaprice_with_output(test_inputs)
         print(f"Resultado: {result}")
     
     asyncio.run(test())

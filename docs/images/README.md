@@ -1,6 +1,6 @@
 # 📸 Imagens da Documentação
 
-Este diretório contém as capturas de tela e imagens usadas na documentação do Hánotas.
+Este diretório contém as capturas de tela e imagens usadas na documentação do Instaprice.
 
 ## 📁 **Estrutura de Arquivos**
 
@@ -48,7 +48,7 @@ magick input.png -quality 85 -resize 1920x1080> output.png
 
 1. **Tela de Login** (`login-screen.png`) ✅ **CAPTURADO**
    - Interface de autenticação elegante
-   - Logo do Hánotas personalizado
+   - Logo do Instaprice personalizado
    - Campos de usuário e senha
    - Contas de demonstração disponíveis
    - Conexão segura e criptografada
@@ -63,7 +63,7 @@ magick input.png -quality 85 -resize 1920x1080> output.png
 
 3. **Central de Ajuda** (`help-center.png`) ✅ **CAPTURADO**
    - Início Rápido com 6 passos visuais
-   - Seção "Sobre o Hánotas" com descrição técnica
+   - Seção "Sobre o Instaprice" com descrição técnica
    - "Agentes Inteligentes" detalhando os 7 agentes
    - "Como Funciona" com fluxo de processamento
    - Informações sobre "Powered by: CrewAI + Groq API + FastAPI"

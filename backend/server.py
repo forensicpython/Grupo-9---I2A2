@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Backend mínimo FastAPI para integração com frontend React
-Integra com a lógica existente do Hanotas
+Integra com a lógica existente do Instaprice
 """
 
 import os
@@ -24,12 +24,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, FileResponse
 from pydantic import BaseModel
 
-# Importa a lógica existente do Hanotas
-from hanotas import Hanotas
+# Importa a lógica existente do Instaprice
+from instaprice import Instaprice
 from utils.logger import setup_logger
 
 # Configuração
-app = FastAPI(title="Hanotas API", description="API para análise de notas fiscais", version="1.0.0")
+app = FastAPI(title="Instaprice API", description="API para análise de notas fiscais", version="1.0.0")
 
 # CORS para permitir frontend React
 app.add_middleware(
@@ -168,7 +168,7 @@ class ConnectionManager:
 # Gerenciador de sessões de análise
 class AnalysisSession:
     def __init__(self):
-        self.sessions = {}  # {session_id: {file_id, dados_dir, extracted_data, hanotas_instance}}
+        self.sessions = {}  # {session_id: {file_id, dados_dir, extracted_data, instaprice_instance}}
     
     def create_session(self, file_id: str, dados_dir: str) -> str:
         """Cria nova sessão de análise"""
@@ -177,7 +177,7 @@ class AnalysisSession:
             'file_id': file_id,
             'dados_dir': dados_dir,
             'extracted_data': None,
-            'hanotas_instance': None,
+            'instaprice_instance': None,
             'created_at': datetime.now(),
             'ready': False
         }
@@ -187,12 +187,12 @@ class AnalysisSession:
         """Recupera sessão existente"""
         return self.sessions.get(session_id)
     
-    def set_session_ready(self, session_id: str, hanotas_instance=None):
+    def set_session_ready(self, session_id: str, instaprice_instance=None):
         """Marca sessão como pronta para consultas"""
         if session_id in self.sessions:
             self.sessions[session_id]['ready'] = True
-            if hanotas_instance:
-                self.sessions[session_id]['hanotas_instance'] = hanotas_instance
+            if instaprice_instance:
+                self.sessions[session_id]['instaprice_instance'] = instaprice_instance
     
     def is_session_ready(self, session_id: str) -> bool:
         """Verifica se sessão está pronta"""
@@ -230,13 +230,18 @@ class ApiTestRequest(BaseModel):
     apiKey: str
     model: str
 
+class ProcessRequest(BaseModel):
+    apiKey: str
+    model: str
+    pergunta: str = "Analise os dados das notas fiscais"
+
 # Diretório para uploads temporários
 UPLOAD_DIR = Path(__file__).parent / "uploads"
 UPLOAD_DIR.mkdir(exist_ok=True)
 
 @app.get("/")
 async def root():
-    return {"message": "Hanotas API está rodando!", "version": "1.0.0"}
+    return {"message": "Instaprice API está rodando!", "version": "1.0.0"}
 
 @app.get("/health")
 async def health_check():
@@ -294,8 +299,8 @@ async def upload_file(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail=f"Erro no upload: {str(e)}")
 
 @app.post("/api/process/{file_id}", response_model=ProcessResponse)
-async def process_file(file_id: str, pergunta: str = "Analise os dados das notas fiscais"):
-    """Processa arquivo com a lógica do Hanotas"""
+async def process_file(file_id: str, request: ProcessRequest):
+    """Processa arquivo com a lógica do Instaprice"""
     try:
         file_path = UPLOAD_DIR / file_id
         
@@ -338,13 +343,17 @@ async def process_file(file_id: str, pergunta: str = "Analise os dados das notas
             }
         })
 
-        # Instancia o Hanotas
-        hanotas = Hanotas()
+        # Instancia o Instaprice com configuração da API
+        instaprice = Instaprice()
+        
+        # Configura a chave API dinamicamente
+        import os
+        os.environ["GROQ_API_KEY"] = request.apiKey
         
         # Prepara inputs para o CrewAI com caminhos absolutos
         inputs = {
             'caminho_zip': str(file_path.absolute()),
-            'pergunta_usuario': pergunta,
+            'pergunta_usuario': request.pergunta,
             'diretorio_dados': str(dados_dir.absolute())
         }
         
@@ -356,9 +365,9 @@ async def process_file(file_id: str, pergunta: str = "Analise os dados das notas
             resultado_subprocess = await run_crewai_subprocess(inputs, manager)
             
             if resultado_subprocess["success"]:
-                # Cria instância local do Hanotas para a sessão
-                hanotas = Hanotas()
-                analysis_sessions.set_session_ready(session_id, hanotas)
+                # Cria instância local do Instaprice para a sessão
+                instaprice = Instaprice()
+                analysis_sessions.set_session_ready(session_id, instaprice)
                 resultado = resultado_subprocess["result"]
                 
                 await manager.broadcast({
@@ -386,8 +395,8 @@ async def process_file(file_id: str, pergunta: str = "Analise os dados das notas
             
             log_capture.start_capture()
             try:
-                resultado = hanotas.crew().kickoff(inputs=inputs)
-                analysis_sessions.set_session_ready(session_id, hanotas)
+                resultado = instaprice.crew().kickoff(inputs=inputs)
+                analysis_sessions.set_session_ready(session_id, instaprice)
             finally:
                 log_capture.stop_capture()
 
@@ -402,7 +411,7 @@ async def process_file(file_id: str, pergunta: str = "Analise os dados das notas
 
         # Procura arquivo de sugestões
         suggestions_file = None
-        for file in dados_dir.rglob("sugestoes_hanotas.md"):
+        for file in dados_dir.rglob("sugestoes_instaprice.md"):
             suggestions_file = str(file)
             break
 
@@ -450,10 +459,10 @@ async def query_session(session_id: str, request: QueryRequest):
         if not analysis_sessions.is_session_ready(session_id):
             raise HTTPException(status_code=400, detail="Sessão ainda não está pronta para consultas")
         
-        # Recupera instância do Hanotas da sessão
-        hanotas_instance = session.get('hanotas_instance')
-        if not hanotas_instance:
-            raise HTTPException(status_code=500, detail="Instância do Hanotas não encontrada na sessão")
+        # Recupera instância do Instaprice da sessão
+        instaprice_instance = session.get('instaprice_instance')
+        if not instaprice_instance:
+            raise HTTPException(status_code=500, detail="Instância do Instaprice não encontrada na sessão")
         
         # Envia logs via WebSocket
         await manager.broadcast({
@@ -477,7 +486,7 @@ async def query_session(session_id: str, request: QueryRequest):
         
         try:
             # Executa apenas a análise da nova pergunta
-            resultado = hanotas_instance.crew().kickoff(inputs=inputs)
+            resultado = instaprice_instance.crew().kickoff(inputs=inputs)
         finally:
             # Para captura de logs
             log_capture.stop_capture()
@@ -623,7 +632,7 @@ async def websocket_endpoint(websocket: WebSocket):
 if __name__ == "__main__":
     import uvicorn
     
-    print("🚀 Iniciando servidor Hanotas...")
+    print("🚀 Iniciando servidor Instaprice...")
     print("📡 Frontend: http://localhost:5173")
     print("🔧 API: http://localhost:8000")
     print("📚 Docs: http://localhost:8000/docs")

@@ -1,5 +1,5 @@
 """
-Testes de segurança para o sistema Hanotas.
+Testes de segurança para o sistema Instaprice.
 """
 import pytest
 import tempfile
@@ -9,7 +9,7 @@ import pandas as pd
 
 from utils.input_validator import InputValidator
 from utils.exceptions import SecurityError, DataValidationError, FileProcessingError
-from config.settings import HanotasSettings
+from config.settings import InstapriceSettings
 
 
 class TestInputValidator:
@@ -116,13 +116,13 @@ class TestInputValidator:
         assert len(sanitized) <= 1000
 
 
-class TestHanotasSettings:
+class TestInstapriceSettings:
     """Testes para configurações do sistema."""
     
     def test_api_key_validation(self):
         """Testa validação de chaves de API."""
         # Chave válida
-        valid_settings = HanotasSettings(
+        valid_settings = InstapriceSettings(
             groq_api_key="gsk_" + "a" * 50,
             model_name="llama-3.1-8b-instant"
         )
@@ -130,7 +130,7 @@ class TestHanotasSettings:
         
         # Chave inválida
         with pytest.raises(ValueError):
-            HanotasSettings(
+            InstapriceSettings(
                 groq_api_key="invalid_key",
                 model_name="llama-3.1-8b-instant"
             )
@@ -138,7 +138,7 @@ class TestHanotasSettings:
     def test_model_validation(self):
         """Testa validação de modelos."""
         # Modelo válido
-        valid_settings = HanotasSettings(
+        valid_settings = InstapriceSettings(
             groq_api_key="gsk_" + "a" * 50,
             model_name="llama-3.1-8b-instant"
         )
@@ -146,7 +146,7 @@ class TestHanotasSettings:
         
         # Modelo inválido
         with pytest.raises(ValueError):
-            HanotasSettings(
+            InstapriceSettings(
                 groq_api_key="gsk_" + "a" * 50,
                 model_name="modelo_inexistente"
             )
@@ -154,7 +154,7 @@ class TestHanotasSettings:
     def test_parameter_ranges(self):
         """Testa validação de ranges de parâmetros."""
         # Parâmetros válidos
-        valid_settings = HanotasSettings(
+        valid_settings = InstapriceSettings(
             groq_api_key="gsk_" + "a" * 50,
             model_name="llama-3.1-8b-instant",
             max_tokens=2000,

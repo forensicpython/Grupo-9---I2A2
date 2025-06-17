@@ -1,5 +1,5 @@
 """
-Sistema de cache otimizado para melhorar performance do Hanotas.
+Sistema de cache otimizado para melhorar performance do Instaprice.
 """
 import hashlib
 import pickle

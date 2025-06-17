@@ -20,7 +20,7 @@ import TerminalView from '../components/TerminalView'
 import ApiTest from '../components/ApiTest'
 import { filesAPI } from '../services/api'
 import { wsManager } from '../utils/websocket'
-import hanotas from '../assets/Hanotas_2.png'
+import instaprice from '../assets/instaprice.png'
 
 const Dashboard = ({ user }) => {
   const [activeTab, setActiveTab] = useState('api')
@@ -39,7 +39,7 @@ const Dashboard = ({ user }) => {
     wsManager.on('connected', (isConnected) => {
       setConnectionStatus(isConnected ? 'connected' : 'disconnected')
       if (isConnected) {
-        addLog('🔗 Conectado ao servidor Hánotas', 'success')
+        addLog('🔗 Conectado ao servidor Instaprice', 'success')
       }
     })
 
@@ -137,15 +137,15 @@ const Dashboard = ({ user }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-hanotas-darker to-hanotas-dark">
+    <div className="min-h-screen bg-gradient-to-br from-instaprice-darker to-instaprice-dark">
       {/* Header */}
       <header className="bg-black/20 backdrop-blur-md border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
-              <img src={hanotas} alt="Hanotas" className="h-16" />
+              <img src={instaprice} alt="Instaprice" className="h-16" />
               <div>
-                <h1 className="text-xl font-bold text-white">Hánotas - Análise de Notas Fiscais</h1>
+                <h1 className="text-xl font-bold text-white">Instaprice - Análise de Notas Fiscais</h1>
                 <p className="text-sm text-gray-400">
                   Bem-vindo, {user?.username} ({user?.type})
                 </p>
@@ -178,7 +178,7 @@ const Dashboard = ({ user }) => {
                 <p className="text-sm text-gray-400">Arquivos Processados</p>
                 <p className="text-2xl font-bold text-white">{processingFiles.filter(f => f.status === 'completed').length}</p>
               </div>
-              <FileText className="w-8 h-8 text-hanotas-primary" />
+              <FileText className="w-8 h-8 text-instaprice-primary" />
             </div>
           </div>
           
@@ -219,7 +219,7 @@ const Dashboard = ({ user }) => {
             onClick={() => setActiveTab('api')}
             className={`flex items-center space-x-2 px-4 py-2 rounded-md transition-all ${
               activeTab === 'api' 
-                ? 'bg-hanotas-primary text-white' 
+                ? 'bg-instaprice-primary text-white' 
                 : 'text-gray-400 hover:text-white'
             }`}
           >
@@ -231,7 +231,7 @@ const Dashboard = ({ user }) => {
             onClick={() => setActiveTab('upload')}
             className={`flex items-center space-x-2 px-4 py-2 rounded-md transition-all ${
               activeTab === 'upload' 
-                ? 'bg-hanotas-primary text-white' 
+                ? 'bg-instaprice-primary text-white' 
                 : 'text-gray-400 hover:text-white'
             }`}
           >
@@ -243,7 +243,7 @@ const Dashboard = ({ user }) => {
             onClick={() => setActiveTab('terminal')}
             className={`flex items-center space-x-2 px-4 py-2 rounded-md transition-all ${
               activeTab === 'terminal' 
-                ? 'bg-hanotas-primary text-white' 
+                ? 'bg-instaprice-primary text-white' 
                 : 'text-gray-400 hover:text-white'
             }`}
           >
@@ -255,7 +255,7 @@ const Dashboard = ({ user }) => {
             onClick={() => setActiveTab('about')}
             className={`flex items-center space-x-2 px-4 py-2 rounded-md transition-all ${
               activeTab === 'about' 
-                ? 'bg-hanotas-primary text-white' 
+                ? 'bg-instaprice-primary text-white' 
                 : 'text-gray-400 hover:text-white'
             }`}
           >
@@ -267,7 +267,7 @@ const Dashboard = ({ user }) => {
             onClick={() => setActiveTab('help')}
             className={`flex items-center space-x-2 px-4 py-2 rounded-md transition-all ${
               activeTab === 'help' 
-                ? 'bg-hanotas-primary text-white' 
+                ? 'bg-instaprice-primary text-white' 
                 : 'text-gray-400 hover:text-white'
             }`}
           >
@@ -317,7 +317,7 @@ const Dashboard = ({ user }) => {
                         </div>
                         <div className="w-full bg-gray-700 rounded-full h-2">
                           <div 
-                            className="bg-hanotas-primary h-2 rounded-full transition-all duration-300"
+                            className="bg-instaprice-primary h-2 rounded-full transition-all duration-300"
                             style={{ width: `${file.progress}%` }}
                           ></div>
                         </div>
@@ -343,7 +343,7 @@ const Dashboard = ({ user }) => {
                                 }))
                                 navigate('/analyze')
                               }}
-                              className="px-3 py-1 bg-hanotas-primary text-white text-xs rounded-md hover:bg-hanotas-secondary transition-colors"
+                              className="px-3 py-1 bg-instaprice-primary text-white text-xs rounded-md hover:bg-instaprice-secondary transition-colors"
                             >
                               Analisar
                             </button>
@@ -378,12 +378,12 @@ const Dashboard = ({ user }) => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-hanotas-primary flex items-center">
+                    <h3 className="text-xl font-semibold text-instaprice-primary flex items-center">
                       <Users className="w-6 h-6 mr-2" />
                       Nossa Equipe
                     </h3>
                     <p className="text-gray-300 leading-relaxed">
-                      Somos o <strong className="text-white">Grupo 9</strong> do desafio <strong className="text-hanotas-primary">I2A2 - Agentes Inteligentes</strong>, 
+                      Somos o <strong className="text-white">Grupo 9</strong> do desafio <strong className="text-instaprice-primary">I2A2 - Agentes Inteligentes</strong>, 
                       uma equipe multidisciplinar apaixonada por inovação e tecnologia. Unidos pela visão de revolucionar 
                       a análise de documentos fiscais através da inteligência artificial.
                     </p>
@@ -393,65 +393,65 @@ const Dashboard = ({ user }) => {
                       <ul className="space-y-3 text-gray-300">
                         <li className="flex items-center justify-between">
                           <div className="flex items-center">
-                            <span className="w-2 h-2 bg-hanotas-primary rounded-full mr-3"></span>
+                            <span className="w-2 h-2 bg-instaprice-primary rounded-full mr-3"></span>
                             <strong>Daniele</strong>
                           </div>
                           <span className="text-sm text-gray-400">daniele_mkt@hotmail.com</span>
                         </li>
                         <li className="flex items-center justify-between">
                           <div className="flex items-center">
-                            <span className="w-2 h-2 bg-hanotas-primary rounded-full mr-3"></span>
+                            <span className="w-2 h-2 bg-instaprice-primary rounded-full mr-3"></span>
                             <strong>Erico</strong>
                           </div>
                           <span className="text-sm text-gray-400">erico@e-reis.com</span>
                         </li>
                         <li className="flex items-center justify-between">
                           <div className="flex items-center">
-                            <span className="w-2 h-2 bg-hanotas-primary rounded-full mr-3"></span>
+                            <span className="w-2 h-2 bg-instaprice-primary rounded-full mr-3"></span>
                             <strong>Erike</strong>
                           </div>
                           <span className="text-sm text-gray-400">erike.axel@gmail.com</span>
                         </li>
                         <li className="flex items-center justify-between">
                           <div className="flex items-center">
-                            <span className="w-2 h-2 bg-hanotas-primary rounded-full mr-3"></span>
+                            <span className="w-2 h-2 bg-instaprice-primary rounded-full mr-3"></span>
                             <strong>Gleison</strong>
                           </div>
                           <span className="text-sm text-gray-400">eng.gleison@gmail.com</span>
                         </li>
                         <li className="flex items-center justify-between">
                           <div className="flex items-center">
-                            <span className="w-2 h-2 bg-hanotas-primary rounded-full mr-3"></span>
+                            <span className="w-2 h-2 bg-instaprice-primary rounded-full mr-3"></span>
                             <strong>Gustavo</strong>
                           </div>
                           <span className="text-sm text-gray-400">gustavoascalderon@gmail.com</span>
                         </li>
-                        <li className="flex items-center justify-between bg-gradient-to-r from-hanotas-primary/10 to-hanotas-secondary/10 rounded-lg p-2 border border-hanotas-primary/20">
+                        <li className="flex items-center justify-between bg-gradient-to-r from-instaprice-primary/10 to-instaprice-secondary/10 rounded-lg p-2 border border-instaprice-primary/20">
                           <div className="flex items-center">
-                            <span className="w-2 h-2 bg-hanotas-primary rounded-full mr-3 animate-pulse"></span>
+                            <span className="w-2 h-2 bg-instaprice-primary rounded-full mr-3 animate-pulse"></span>
                             <div>
                               <strong className="text-white">Juliana</strong>
-                              <span className="ml-2 text-xs bg-hanotas-primary text-white px-2 py-0.5 rounded-full">Responsável</span>
+                              <span className="ml-2 text-xs bg-instaprice-primary text-white px-2 py-0.5 rounded-full">Responsável</span>
                             </div>
                           </div>
-                          <span className="text-sm text-hanotas-primary font-medium">juliana.coelho@live.com</span>
+                          <span className="text-sm text-instaprice-primary font-medium">juliana.coelho@live.com</span>
                         </li>
                       </ul>
                     </div>
                   </div>
 
                   <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-hanotas-primary flex items-center">
+                    <h3 className="text-xl font-semibold text-instaprice-primary flex items-center">
                       <Zap className="w-6 h-6 mr-2" />
                       Nossa Missão
                     </h3>
                     <p className="text-gray-300 leading-relaxed">
                       Desenvolver soluções inteligentes que simplifiquem e automatizem processos complexos. 
-                      Com o Hánotas, buscamos democratizar o acesso à análise avançada de dados fiscais, 
+                      Com o Instaprice, buscamos democratizar o acesso à análise avançada de dados fiscais, 
                       tornando-a acessível e intuitiva para todos.
                     </p>
 
-                    <div className="bg-gradient-to-r from-hanotas-primary/10 to-hanotas-secondary/10 rounded-lg p-4 border border-hanotas-primary/20">
+                    <div className="bg-gradient-to-r from-instaprice-primary/10 to-instaprice-secondary/10 rounded-lg p-4 border border-instaprice-primary/20">
                       <h4 className="text-lg font-medium text-white mb-3">🏆 Nossos Valores:</h4>
                       <ul className="space-y-2 text-gray-300">
                         <li><strong>Inovação:</strong> Sempre buscando novas formas de resolver problemas</li>
@@ -470,7 +470,7 @@ const Dashboard = ({ user }) => {
                   <p className="text-gray-300 leading-relaxed">
                     Este projeto nasceu do desafio de criar um sistema multiagente capaz de processar e analisar 
                     documentos fiscais de forma autônoma e inteligente. Utilizando as mais modernas tecnologias 
-                    como CrewAI, RAG e modelos de linguagem avançados, o Hánotas representa nossa contribuição 
+                    como CrewAI, RAG e modelos de linguagem avançados, o Instaprice representa nossa contribuição 
                     para o futuro da automação fiscal.
                   </p>
                   <div className="mt-4 flex justify-center space-x-4 text-sm text-gray-400">
@@ -489,43 +489,43 @@ const Dashboard = ({ user }) => {
             <div className="glass-effect rounded-xl p-8">
               <div className="max-w-6xl mx-auto">
                 <h2 className="text-3xl font-bold text-white mb-8 text-center">
-                  📖 Central de Ajuda - Hánotas
+                  📖 Central de Ajuda - Instaprice
                 </h2>
                 
                 {/* Quick Start destacado */}
                 <div className="mb-10">
-                  <div className="bg-gradient-to-r from-hanotas-primary/20 to-hanotas-secondary/20 rounded-xl p-8 border border-hanotas-primary/30">
+                  <div className="bg-gradient-to-r from-instaprice-primary/20 to-instaprice-secondary/20 rounded-xl p-8 border border-instaprice-primary/30">
                     <h3 className="text-2xl font-bold text-white mb-6 text-center">
                       🚀 Início Rápido
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-6 gap-3">
                       <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center transform hover:scale-105 transition-transform">
-                        <div className="bg-hanotas-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold mx-auto mb-2">1</div>
+                        <div className="bg-instaprice-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold mx-auto mb-2">1</div>
                         <h4 className="text-white font-semibold mb-1 text-sm">Configure API</h4>
                         <p className="text-gray-300 text-xs">Adicione sua chave Groq</p>
                       </div>
                       <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center transform hover:scale-105 transition-transform">
-                        <div className="bg-hanotas-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold mx-auto mb-2">2</div>
+                        <div className="bg-instaprice-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold mx-auto mb-2">2</div>
                         <h4 className="text-white font-semibold mb-1 text-sm">Upload ZIP</h4>
                         <p className="text-gray-300 text-xs">Envie suas notas fiscais</p>
                       </div>
                       <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center transform hover:scale-105 transition-transform">
-                        <div className="bg-hanotas-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold mx-auto mb-2">3</div>
+                        <div className="bg-instaprice-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold mx-auto mb-2">3</div>
                         <h4 className="text-white font-semibold mb-1 text-sm">Pergunte</h4>
                         <p className="text-gray-300 text-xs">Use linguagem natural</p>
                       </div>
                       <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center transform hover:scale-105 transition-transform">
-                        <div className="bg-hanotas-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold mx-auto mb-2">4</div>
+                        <div className="bg-instaprice-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold mx-auto mb-2">4</div>
                         <h4 className="text-white font-semibold mb-1 text-sm">Monitore</h4>
                         <p className="text-gray-300 text-xs">Acompanhe o processamento</p>
                       </div>
                       <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center transform hover:scale-105 transition-transform">
-                        <div className="bg-hanotas-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold mx-auto mb-2">5</div>
+                        <div className="bg-instaprice-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold mx-auto mb-2">5</div>
                         <h4 className="text-white font-semibold mb-1 text-sm">Receba Resposta</h4>
                         <p className="text-gray-300 text-xs">Análise automatizada</p>
                       </div>
                       <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center transform hover:scale-105 transition-transform">
-                        <div className="bg-hanotas-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold mx-auto mb-2">6</div>
+                        <div className="bg-instaprice-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold mx-auto mb-2">6</div>
                         <h4 className="text-white font-semibold mb-1 text-sm">Insights</h4>
                         <p className="text-gray-300 text-xs">Relatórios inteligentes</p>
                       </div>
@@ -539,8 +539,8 @@ const Dashboard = ({ user }) => {
                   <div className="space-y-6">
                     {/* O que é */}
                     <div className="bg-gray-800/50 rounded-lg p-6">
-                      <h3 className="text-xl font-semibold text-hanotas-primary mb-4">
-                        📊 Sobre o Hánotas
+                      <h3 className="text-xl font-semibold text-instaprice-primary mb-4">
+                        📊 Sobre o Instaprice
                       </h3>
                       <p className="text-gray-300 leading-relaxed mb-4">
                         Sistema inteligente para análise automatizada de notas fiscais eletrônicas, 
@@ -556,33 +556,33 @@ const Dashboard = ({ user }) => {
 
                     {/* Como funciona */}
                     <div className="bg-gray-800/50 rounded-lg p-6">
-                      <h3 className="text-xl font-semibold text-hanotas-primary mb-4">
+                      <h3 className="text-xl font-semibold text-instaprice-primary mb-4">
                         ⚙️ Como Funciona
                       </h3>
                       <div className="space-y-4">
                         <div className="flex items-start space-x-3">
-                          <span className="text-hanotas-primary font-bold">1.</span>
+                          <span className="text-instaprice-primary font-bold">1.</span>
                           <div>
                             <h4 className="text-white font-medium">Upload do arquivo</h4>
                             <p className="text-gray-400 text-sm">Envie um ZIP com CSVs de notas fiscais</p>
                           </div>
                         </div>
                         <div className="flex items-start space-x-3">
-                          <span className="text-hanotas-primary font-bold">2.</span>
+                          <span className="text-instaprice-primary font-bold">2.</span>
                           <div>
                             <h4 className="text-white font-medium">Processamento inteligente</h4>
                             <p className="text-gray-400 text-sm">7 agentes especializados analisam os dados</p>
                           </div>
                         </div>
                         <div className="flex items-start space-x-3">
-                          <span className="text-hanotas-primary font-bold">3.</span>
+                          <span className="text-instaprice-primary font-bold">3.</span>
                           <div>
                             <h4 className="text-white font-medium">Faça perguntas</h4>
                             <p className="text-gray-400 text-sm">Use linguagem natural para consultar</p>
                           </div>
                         </div>
                         <div className="flex items-start space-x-3">
-                          <span className="text-hanotas-primary font-bold">4.</span>
+                          <span className="text-instaprice-primary font-bold">4.</span>
                           <div>
                             <h4 className="text-white font-medium">Resposta final eloquente</h4>
                             <p className="text-gray-400 text-sm">O Porta-Voz Eloquente consolida todas as informações em uma resposta magistral</p>
@@ -593,7 +593,7 @@ const Dashboard = ({ user }) => {
 
                     {/* Exemplos práticos */}
                     <div className="bg-gray-800/50 rounded-lg p-6">
-                      <h3 className="text-xl font-semibold text-hanotas-primary mb-4">
+                      <h3 className="text-xl font-semibold text-instaprice-primary mb-4">
                         💬 Exemplos de Perguntas
                       </h3>
                       <div className="space-y-3">
@@ -617,57 +617,57 @@ const Dashboard = ({ user }) => {
 
                     {/* Fluxo de trabalho dos agentes */}
                     <div className="bg-gray-800/50 rounded-lg p-6">
-                      <h3 className="text-xl font-semibold text-hanotas-primary mb-4">
+                      <h3 className="text-xl font-semibold text-instaprice-primary mb-4">
                         🔄 Fluxo dos Agentes
                       </h3>
                       <div className="space-y-3">
                         <div className="flex items-center space-x-3 p-2 bg-gray-700/30 rounded">
-                          <span className="text-xs bg-hanotas-primary text-white px-2 py-1 rounded">1</span>
+                          <span className="text-xs bg-instaprice-primary text-white px-2 py-1 rounded">1</span>
                           <div className="text-xs">
                             <span className="text-white font-medium">🗂️ Zip Desbravador</span>
                             <span className="text-gray-400 ml-2">→ Extrai CSVs</span>
                           </div>
                         </div>
                         <div className="flex items-center space-x-3 p-2 bg-gray-700/30 rounded">
-                          <span className="text-xs bg-hanotas-primary text-white px-2 py-1 rounded">2</span>
+                          <span className="text-xs bg-instaprice-primary text-white px-2 py-1 rounded">2</span>
                           <div className="text-xs">
                             <span className="text-white font-medium">🛡️ Guardião Pydantic</span>
                             <span className="text-gray-400 ml-2">→ Valida dados</span>
                           </div>
                         </div>
                         <div className="flex items-center space-x-3 p-2 bg-gray-700/30 rounded">
-                          <span className="text-xs bg-hanotas-primary text-white px-2 py-1 rounded">3</span>
+                          <span className="text-xs bg-instaprice-primary text-white px-2 py-1 rounded">3</span>
                           <div className="text-xs">
                             <span className="text-white font-medium">🧠 Linguista Lúcido</span>
                             <span className="text-gray-400 ml-2">→ Interpreta pergunta</span>
                           </div>
                         </div>
                         <div className="flex items-center space-x-3 p-2 bg-gray-700/30 rounded">
-                          <span className="text-xs bg-hanotas-primary text-white px-2 py-1 rounded">4</span>
+                          <span className="text-xs bg-instaprice-primary text-white px-2 py-1 rounded">4</span>
                           <div className="text-xs">
                             <span className="text-white font-medium">📊 Executor</span>
                             <span className="text-gray-400 ml-2">→ Executa consultas</span>
                           </div>
                         </div>
                         <div className="flex items-center space-x-3 p-2 bg-gray-700/30 rounded">
-                          <span className="text-xs bg-hanotas-primary text-white px-2 py-1 rounded">5</span>
+                          <span className="text-xs bg-instaprice-primary text-white px-2 py-1 rounded">5</span>
                           <div className="text-xs">
                             <span className="text-white font-medium">🎭 RP Lúdico</span>
                             <span className="text-gray-400 ml-2">→ Humaniza resposta</span>
                           </div>
                         </div>
                         <div className="flex items-center space-x-3 p-2 bg-gray-700/30 rounded">
-                          <span className="text-xs bg-hanotas-primary text-white px-2 py-1 rounded">6</span>
+                          <span className="text-xs bg-instaprice-primary text-white px-2 py-1 rounded">6</span>
                           <div className="text-xs">
                             <span className="text-white font-medium">💡 Sugestor</span>
                             <span className="text-gray-400 ml-2">→ Gera sugestões</span>
                           </div>
                         </div>
-                        <div className="flex items-center space-x-3 p-2 bg-gradient-to-r from-hanotas-primary/20 to-hanotas-secondary/20 rounded border border-hanotas-primary/30">
-                          <span className="text-xs bg-hanotas-primary text-white px-2 py-1 rounded">7</span>
+                        <div className="flex items-center space-x-3 p-2 bg-gradient-to-r from-instaprice-primary/20 to-instaprice-secondary/20 rounded border border-instaprice-primary/30">
+                          <span className="text-xs bg-instaprice-primary text-white px-2 py-1 rounded">7</span>
                           <div className="text-xs">
                             <span className="text-white font-medium">🎩 Porta-Voz Eloquente</span>
-                            <span className="text-hanotas-primary ml-2">→ Resposta final magistral</span>
+                            <span className="text-instaprice-primary ml-2">→ Resposta final magistral</span>
                           </div>
                         </div>
                       </div>
@@ -678,7 +678,7 @@ const Dashboard = ({ user }) => {
                   <div className="space-y-6">
                     {/* Agentes */}
                     <div className="bg-gray-800/50 rounded-lg p-6">
-                      <h3 className="text-xl font-semibold text-hanotas-primary mb-4">
+                      <h3 className="text-xl font-semibold text-instaprice-primary mb-4">
                         🤖 Agentes Inteligentes
                       </h3>
                       <div className="grid grid-cols-2 gap-3">
@@ -706,16 +706,16 @@ const Dashboard = ({ user }) => {
                           <h4 className="text-white font-medium text-sm mb-1">💡 Sugestor Visionário</h4>
                           <p className="text-gray-400 text-xs">Gera sugestões inteligentes</p>
                         </div>
-                        <div className="bg-gradient-to-r from-hanotas-primary/20 to-hanotas-secondary/20 rounded-lg p-3 border border-hanotas-primary/30 col-span-2">
+                        <div className="bg-gradient-to-r from-instaprice-primary/20 to-instaprice-secondary/20 rounded-lg p-3 border border-instaprice-primary/30 col-span-2">
                           <h4 className="text-white font-medium text-sm mb-1">🎩 Porta-Voz Eloquente</h4>
-                          <p className="text-hanotas-primary text-xs">Agente final que consolida todas as respostas dos outros agentes em uma resposta magistral e definitiva ao usuário</p>
+                          <p className="text-instaprice-primary text-xs">Agente final que consolida todas as respostas dos outros agentes em uma resposta magistral e definitiva ao usuário</p>
                         </div>
                       </div>
                     </div>
 
                     {/* Configuração API */}
                     <div className="bg-gray-800/50 rounded-lg p-6">
-                      <h3 className="text-xl font-semibold text-hanotas-primary mb-4">
+                      <h3 className="text-xl font-semibold text-instaprice-primary mb-4">
                         🔧 Configuração da API
                       </h3>
                       <div className="space-y-3">
@@ -738,7 +738,7 @@ const Dashboard = ({ user }) => {
 
                     {/* Stack técnica */}
                     <div className="bg-gray-800/50 rounded-lg p-6">
-                      <h3 className="text-xl font-semibold text-hanotas-primary mb-4">
+                      <h3 className="text-xl font-semibold text-instaprice-primary mb-4">
                         🛠️ Tecnologias Utilizadas
                       </h3>
                       <div className="grid grid-cols-2 gap-4">
@@ -797,7 +797,7 @@ const Dashboard = ({ user }) => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                   {/* Monitoramento */}
                   <div className="bg-gray-800/50 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-hanotas-primary mb-3">
+                    <h3 className="text-lg font-semibold text-instaprice-primary mb-3">
                       🔄 Monitoramento
                     </h3>
                     <div className="space-y-2 text-sm">
@@ -818,7 +818,7 @@ const Dashboard = ({ user }) => {
 
                   {/* Interface */}
                   <div className="bg-gray-800/50 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-hanotas-primary mb-3">
+                    <h3 className="text-lg font-semibold text-instaprice-primary mb-3">
                       📱 Interface
                     </h3>
                     <div className="space-y-2 text-sm">
@@ -829,7 +829,7 @@ const Dashboard = ({ user }) => {
                   </div>
 
                   {/* Segurança */}
-                  <div className="bg-gradient-to-r from-hanotas-primary/10 to-hanotas-secondary/10 rounded-lg p-6 border border-hanotas-primary/20">
+                  <div className="bg-gradient-to-r from-instaprice-primary/10 to-instaprice-secondary/10 rounded-lg p-6 border border-instaprice-primary/20">
                     <h3 className="text-lg font-semibold text-white mb-3">
                       🛡️ Segurança
                     </h3>
@@ -847,8 +847,8 @@ const Dashboard = ({ user }) => {
                     <p className="text-gray-400 text-sm">
                       Precisa de mais ajuda? Entre em contato com o Grupo 9 do desafio I2A2
                     </p>
-                    <p className="text-hanotas-primary text-xs mt-2">
-                      Hánotas v1.0 - Sistema Inteligente de Análise Fiscal
+                    <p className="text-instaprice-primary text-xs mt-2">
+                      Instaprice v1.0 - Sistema Inteligente de Análise Fiscal
                     </p>
                   </div>
                 </div>
@@ -862,8 +862,8 @@ const Dashboard = ({ user }) => {
           <button
             onClick={() => navigate('/analyze')}
             className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r 
-                     from-hanotas-primary to-hanotas-secondary text-white rounded-lg 
-                     font-medium hover:shadow-lg hover:shadow-hanotas-primary/25 
+                     from-instaprice-primary to-instaprice-secondary text-white rounded-lg 
+                     font-medium hover:shadow-lg hover:shadow-instaprice-primary/25 
                      transition-all duration-300"
           >
             <Activity className="w-5 h-5" />

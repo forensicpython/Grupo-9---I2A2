@@ -3,9 +3,9 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-def setup_logger(name: str = "hanotas", log_level: str = "INFO") -> logging.Logger:
+def setup_logger(name: str = "instaprice", log_level: str = "INFO") -> logging.Logger:
     """
-    Configura sistema de logging para o Hanotas
+    Configura sistema de logging para o Instaprice
     
     Args:
         name: Nome do logger
@@ -21,7 +21,7 @@ def setup_logger(name: str = "hanotas", log_level: str = "INFO") -> logging.Logg
     
     # Nome do arquivo de log com timestamp
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = log_dir / f"hanotas_{timestamp}.log"
+    log_file = log_dir / f"instaprice_{timestamp}.log"
     
     # Configuração do logger
     logger = logging.getLogger(name)

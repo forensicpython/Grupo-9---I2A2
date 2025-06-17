@@ -40,7 +40,7 @@ const TerminalView = ({ logs }) => {
     <div className="glass-effect rounded-xl overflow-hidden">
       <div className="bg-gray-900/50 px-4 py-3 border-b border-gray-700 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <TerminalIcon className="w-5 h-5 text-hanotas-primary" />
+          <TerminalIcon className="w-5 h-5 text-instaprice-primary" />
           <h3 className="text-white font-medium">Monitor dos Robôs em Tempo Real</h3>
         </div>
         <div className="flex items-center space-x-2">
@@ -95,7 +95,7 @@ const TerminalView = ({ logs }) => {
                 {new Date().toLocaleTimeString()}
               </span>
               <div className="shrink-0">
-                <div className="w-2 h-4 bg-hanotas-primary animate-pulse"></div>
+                <div className="w-2 h-4 bg-instaprice-primary animate-pulse"></div>
               </div>
               <span className="text-gray-400">Aguardando próxima operação...</span>
             </div>

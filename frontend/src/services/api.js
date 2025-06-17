@@ -100,8 +100,12 @@ export const filesAPI = {
       timeout: TIMEOUTS.API.UPLOAD,
     })
   },
-  process: (fileId, pergunta = 'Analise os dados das notas fiscais') => {
-    return longApi.post(`/api/process/${fileId}?pergunta=${encodeURIComponent(pergunta)}`, {}, {
+  process: (fileId, pergunta = 'Analise os dados das notas fiscais', apiKey, model) => {
+    return longApi.post(`/api/process/${fileId}`, {
+      apiKey: apiKey,
+      model: model,
+      pergunta: pergunta
+    }, {
       timeout: TIMEOUTS.API.PROCESSING,
     })
   },

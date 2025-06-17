@@ -9,21 +9,21 @@ import os
 # Adiciona o diretório backend ao path
 sys.path.insert(0, os.path.dirname(__file__))
 
-from hanotas import Hanotas
+from instaprice import Instaprice
 
 def test_verbose_capture():
     """Testa se o verbose está funcionando"""
     
     print("🚀 Iniciando teste verbose do CrewAI...")
     
-    # Instancia o Hanotas
-    hanotas = Hanotas()
+    # Instancia o Instaprice
+    instaprice = Instaprice()
     
     # Prepara inputs de teste
     inputs = {
-        'caminho_zip': '/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Hanotas_2/backend/uploads/dados/202401_NFs.zip',
+        'caminho_zip': '/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Instaprice_2/backend/uploads/dados/202401_NFs.zip',
         'pergunta_usuario': 'Teste rápido para verificar verbose',
-        'diretorio_dados': '/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Hanotas_2/backend/uploads/dados/notasfiscais'
+        'diretorio_dados': '/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Instaprice_2/backend/uploads/dados/notasfiscais'
     }
     
     print("📋 Configurações:")
@@ -37,7 +37,7 @@ def test_verbose_capture():
         print("=" * 60)
         
         # Executa o crew - isso deve gerar muito output verbose
-        resultado = hanotas.crew().kickoff(inputs=inputs)
+        resultado = instaprice.crew().kickoff(inputs=inputs)
         
         print("=" * 60)
         print("✅ Teste concluído!")

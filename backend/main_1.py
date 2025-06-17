@@ -1,4 +1,4 @@
-from hanotas import Hanotas
+from instaprice import Instaprice
 import os
 
 if __name__ == "__main__":
@@ -16,6 +16,6 @@ if __name__ == "__main__":
     }
     
     # Executa a crew
-    hanotas = Hanotas()
-    result = hanotas.crew().kickoff(inputs=inputs)
+    instaprice = Instaprice()
+    result = instaprice.crew().kickoff(inputs=inputs)
     print(f"Resultado final da Crew: {result}")

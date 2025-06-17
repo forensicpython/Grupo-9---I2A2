@@ -1,12 +1,12 @@
 """
-Exceções personalizadas para o sistema Hanotas.
+Exceções personalizadas para o sistema Instaprice.
 Fornece tratamento específico e contextualizado de erros.
 """
 from typing import Optional, Dict, Any
 
 
-class HanotasException(Exception):
-    """Exceção base do sistema Hanotas."""
+class InstapriceException(Exception):
+    """Exceção base do sistema Instaprice."""
     
     def __init__(self, message: str, error_code: Optional[str] = None, context: Optional[Dict[str, Any]] = None):
         self.message = message
@@ -24,12 +24,12 @@ class HanotasException(Exception):
         }
 
 
-class ConfigurationError(HanotasException):
+class ConfigurationError(InstapriceException):
     """Erro de configuração do sistema."""
     pass
 
 
-class DataValidationError(HanotasException):
+class DataValidationError(InstapriceException):
     """Erro de validação de dados."""
     
     def __init__(self, message: str, invalid_records: Optional[int] = None, 
@@ -46,7 +46,7 @@ class DataValidationError(HanotasException):
         super().__init__(message, context=context)
 
 
-class FileProcessingError(HanotasException):
+class FileProcessingError(InstapriceException):
     """Erro de processamento de arquivos."""
     
     def __init__(self, message: str, file_path: Optional[str] = None, 
@@ -85,7 +85,7 @@ class CSVProcessingError(FileProcessingError):
         super().__init__(message, context=context)
 
 
-class LLMApiError(HanotasException):
+class LLMApiError(InstapriceException):
     """Erro de API do LLM."""
     
     def __init__(self, message: str, api_response_code: Optional[int] = None,
@@ -102,7 +102,7 @@ class LLMApiError(HanotasException):
         super().__init__(message, context=context)
 
 
-class AgentExecutionError(HanotasException):
+class AgentExecutionError(InstapriceException):
     """Erro de execução de agente."""
     
     def __init__(self, message: str, agent_name: Optional[str] = None,
@@ -119,7 +119,7 @@ class AgentExecutionError(HanotasException):
         super().__init__(message, context=context)
 
 
-class SecurityError(HanotasException):
+class SecurityError(InstapriceException):
     """Erro de segurança."""
     
     def __init__(self, message: str, security_level: str = "HIGH", **kwargs):
@@ -133,7 +133,7 @@ class SecurityError(HanotasException):
         super().__init__(message, context=context)
 
 
-class RateLimitError(HanotasException):
+class RateLimitError(InstapriceException):
     """Erro de limite de taxa."""
     
     def __init__(self, message: str, retry_after: Optional[int] = None, **kwargs):
@@ -147,7 +147,7 @@ class RateLimitError(HanotasException):
         super().__init__(message, context=context)
 
 
-class TimeoutError(HanotasException):
+class TimeoutError(InstapriceException):
     """Erro de timeout."""
     
     def __init__(self, message: str, timeout_seconds: Optional[int] = None, **kwargs):
@@ -161,7 +161,7 @@ class TimeoutError(HanotasException):
         super().__init__(message, context=context)
 
 
-class DataIntegrityError(HanotasException):
+class DataIntegrityError(InstapriceException):
     """Erro de integridade de dados."""
     
     def __init__(self, message: str, expected_checksum: Optional[str] = None,
@@ -192,7 +192,7 @@ def handle_exceptions(exception_mapping: Optional[Dict[type, type]] = None):
                 return func(*args, **kwargs)
             except Exception as e:
                 # Se é uma exceção customizada, apenas re-raise
-                if isinstance(e, HanotasException):
+                if isinstance(e, InstapriceException):
                     raise
                 
                 # Mapeia exceções conhecidas
@@ -205,7 +205,7 @@ def handle_exceptions(exception_mapping: Optional[Dict[type, type]] = None):
                             ) from e
                 
                 # Exceção genérica para casos não mapeados
-                raise HanotasException(
+                raise InstapriceException(
                     f"Unexpected error in {func.__name__}: {str(e)}",
                     context={"original_exception": type(e).__name__}
                 ) from e

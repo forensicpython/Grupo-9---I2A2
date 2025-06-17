@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import { filesAPI } from '../services/api'
 import { wsManager } from '../utils/websocket'
-import hanotas from '../assets/Hanotas_2.png'
+import instaprice from '../assets/instaprice.png'
 import jsPDF from 'jspdf'
 
 const AnalysisPage = ({ user }) => {
@@ -120,7 +120,12 @@ const AnalysisPage = ({ user }) => {
           model: analysisData.model
         })
 
-        response = await filesAPI.process(analysisData.file.serverFileId, message)
+        response = await filesAPI.process(
+          analysisData.file.serverFileId, 
+          message,
+          analysisData.apiKey,
+          analysisData.model
+        )
         
         // Salva session_id da resposta
         if (response.data.session_id) {
@@ -279,7 +284,7 @@ Como posso ajudar você especificamente com essa análise?`
       // Cabeçalho do PDF
       doc.setFontSize(16)
       doc.setFont('helvetica', 'bold')
-      doc.text('Hanotas - Análise Inteligente de Notas Fiscais', margin, currentY)
+      doc.text('Instaprice - Análise Inteligente de Notas Fiscais', margin, currentY)
       currentY += 10
       
       doc.setFontSize(12)
@@ -401,7 +406,7 @@ Como posso ajudar você especificamente com essa análise?`
         doc.setFontSize(8)
         doc.setTextColor(128, 128, 128)
         doc.text(
-          `Página ${i} de ${totalPages} - Hanotas AI Analysis`, 
+          `Página ${i} de ${totalPages} - Instaprice AI Analysis`, 
           pageWidth / 2, 
           pageHeight - 10, 
           { align: 'center' }
@@ -409,7 +414,7 @@ Como posso ajudar você especificamente com essa análise?`
       }
       
       // Salvar o PDF
-      const fileName = `hanotas-chat-${new Date().toISOString().slice(0, 10)}.pdf`
+      const fileName = `instaprice-chat-${new Date().toISOString().slice(0, 10)}.pdf`
       doc.save(fileName)
       
       // Feedback visual
@@ -422,7 +427,7 @@ Como posso ajudar você especificamente com essa análise?`
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-hanotas-darker to-hanotas-dark">
+    <div className="min-h-screen bg-gradient-to-br from-instaprice-darker to-instaprice-dark">
       {/* Header */}
       <header className="bg-black/20 backdrop-blur-md border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -436,7 +441,7 @@ Como posso ajudar você especificamente com essa análise?`
                 <span>Voltar</span>
               </button>
               <div className="h-6 w-px bg-gray-600"></div>
-              <img src={hanotas} alt="Hanotas" className="h-16" />
+              <img src={instaprice} alt="Instaprice" className="h-16" />
               <div>
                 <h1 className="text-xl font-bold text-white">Análise Inteligente</h1>
                 <p className="text-sm text-gray-400">Faça perguntas em linguagem natural</p>
@@ -447,9 +452,9 @@ Como posso ajudar você especificamente com essa análise?`
               <button 
                 onClick={exportChatToPDF}
                 disabled={agentLogs.length === 0 && messages.length === 0}
-                className="flex items-center space-x-2 px-4 py-2 bg-hanotas-primary/20 
-                         border border-hanotas-primary/30 rounded-lg hover:bg-hanotas-primary/30 
-                         transition-colors text-hanotas-primary disabled:opacity-50 
+                className="flex items-center space-x-2 px-4 py-2 bg-instaprice-primary/20 
+                         border border-instaprice-primary/30 rounded-lg hover:bg-instaprice-primary/30 
+                         transition-colors text-instaprice-primary disabled:opacity-50 
                          disabled:cursor-not-allowed"
                 title="Exportar toda a conversação e logs do terminal para PDF"
               >
@@ -470,7 +475,7 @@ Como posso ajudar você especificamente com essa análise?`
               <div className="bg-gray-900/50 px-6 py-4 border-b border-gray-700">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-hanotas-primary to-hanotas-secondary 
+                    <div className="w-10 h-10 bg-gradient-to-r from-instaprice-primary to-instaprice-secondary 
                                    rounded-full flex items-center justify-center">
                       <MessageSquare className="w-5 h-5 text-white" />
                     </div>
@@ -493,8 +498,8 @@ Como posso ajudar você especificamente com essa análise?`
               <div className="flex-1 overflow-y-auto p-6 space-y-4">
                 {messages.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-full text-center">
-                    <div className="w-16 h-16 bg-hanotas-primary/20 rounded-full flex items-center justify-center mb-4">
-                      <MessageSquare className="w-8 h-8 text-hanotas-primary" />
+                    <div className="w-16 h-16 bg-instaprice-primary/20 rounded-full flex items-center justify-center mb-4">
+                      <MessageSquare className="w-8 h-8 text-instaprice-primary" />
                     </div>
                     <h3 className="text-white font-medium mb-2">Pronto para analisar seus dados</h3>
                     <p className="text-gray-400 max-w-md">
@@ -516,7 +521,7 @@ Como posso ajudar você especificamente com essa análise?`
                       <div
                         className={`max-w-[80%] p-4 rounded-2xl ${
                           message.sender === 'user'
-                            ? 'bg-hanotas-primary text-white'
+                            ? 'bg-instaprice-primary text-white'
                             : 'bg-gray-800/50 text-gray-100'
                         }`}
                       >
@@ -528,9 +533,9 @@ Como posso ajudar você especificamente com essa análise?`
                             {message.charts.map((chart, index) => (
                               <div key={index} className="bg-gray-900/50 rounded-lg p-4">
                                 <h4 className="text-xs font-medium text-gray-300 mb-2">{chart.title}</h4>
-                                <div className="h-20 bg-gradient-to-r from-hanotas-primary/20 to-hanotas-secondary/20 
+                                <div className="h-20 bg-gradient-to-r from-instaprice-primary/20 to-instaprice-secondary/20 
                                               rounded flex items-end justify-center">
-                                  <BarChart3 className="w-8 h-8 text-hanotas-primary/50" />
+                                  <BarChart3 className="w-8 h-8 text-instaprice-primary/50" />
                                 </div>
                               </div>
                             ))}
@@ -549,9 +554,9 @@ Como posso ajudar você especificamente com essa análise?`
                     <div className="bg-gray-800/50 p-4 rounded-2xl">
                       <div className="flex items-center space-x-2">
                         <div className="flex space-x-1">
-                          <div className="w-2 h-2 bg-hanotas-primary rounded-full animate-bounce"></div>
-                          <div className="w-2 h-2 bg-hanotas-primary rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                          <div className="w-2 h-2 bg-hanotas-primary rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                          <div className="w-2 h-2 bg-instaprice-primary rounded-full animate-bounce"></div>
+                          <div className="w-2 h-2 bg-instaprice-primary rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                          <div className="w-2 h-2 bg-instaprice-primary rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
                         </div>
                         <span className="text-gray-400 text-sm">Analisando...</span>
                       </div>
@@ -571,13 +576,13 @@ Como posso ajudar você especificamente com essa análise?`
                     placeholder={isSessionReady ? "Faça outra pergunta sobre os mesmos dados..." : "Faça uma pergunta sobre suas notas fiscais..."}
                     className="flex-1 px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg 
                              text-white placeholder-gray-400 focus:outline-none focus:ring-2 
-                             focus:ring-hanotas-primary focus:border-transparent transition-all"
+                             focus:ring-instaprice-primary focus:border-transparent transition-all"
                   />
                   <button
                     onClick={() => handleSendMessage()}
                     disabled={!inputMessage.trim() || isAnalyzing}
-                    className="px-6 py-3 bg-gradient-to-r from-hanotas-primary to-hanotas-secondary 
-                             text-white rounded-lg font-medium hover:shadow-lg hover:shadow-hanotas-primary/25 
+                    className="px-6 py-3 bg-gradient-to-r from-instaprice-primary to-instaprice-secondary 
+                             text-white rounded-lg font-medium hover:shadow-lg hover:shadow-instaprice-primary/25 
                              transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Send className="w-5 h-5" />

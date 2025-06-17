@@ -216,7 +216,7 @@ sugestoes_task:
 resposta_final_task:
   name: Resposta Final Eloquente
   description: |
-    Como Porta-Voz Eloquente da crew Hanotas, consolide todas as informações
+    Como Porta-Voz Eloquente da crew Instaprice, consolide todas as informações
     dos agentes anteriores em uma resposta magistral e definitiva ao usuário.
     
     PERGUNTA ORIGINAL DO USUÁRIO: {pergunta_usuario}

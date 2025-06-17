@@ -1,5 +1,5 @@
 """
-Sistema de logging estruturado e seguro para o Hanotas.
+Sistema de logging estruturado e seguro para o Instaprice.
 Substitui o sistema de "espionagem" por auditoria adequada.
 """
 import logging
@@ -52,7 +52,7 @@ class SecureLogger:
         
         # Handler para arquivo principal
         main_handler = logging.FileHandler(
-            self.log_dir / f"hanotas_{datetime.now().strftime('%Y%m%d')}.log"
+            self.log_dir / f"instaprice_{datetime.now().strftime('%Y%m%d')}.log"
         )
         main_handler.setFormatter(self._get_json_formatter())
         
@@ -192,7 +192,7 @@ def get_secure_logger(name: str) -> SecureLogger:
     return SecureLogger(name)
 
 # Instância global
-secure_logger = get_secure_logger("hanotas")
+secure_logger = get_secure_logger("instaprice")
 
 # Funções de conveniência
 def log_execution_step(step: str, **kwargs):

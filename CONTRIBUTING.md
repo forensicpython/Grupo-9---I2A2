@@ -1,6 +1,6 @@
-# 🤝 Guia de Contribuição - Hanotas
+# 🤝 Guia de Contribuição - Instaprice
 
-Obrigado por considerar contribuir para o **Hanotas**! 🎉
+Obrigado por considerar contribuir para o **Instaprice**! 🎉
 
 Este documento fornece diretrizes para contribuir com o projeto de forma eficiente e organizada.
 
@@ -10,11 +10,11 @@ Este documento fornece diretrizes para contribuir com o projeto de forma eficien
 ```bash
 # Fork o projeto no GitHub
 # Clone seu fork
-git clone https://github.com/SEU_USUARIO/hanotas.git
-cd hanotas
+git clone https://github.com/SEU_USUARIO/instaprice.git
+cd instaprice
 
 # Adicione o repositório original como upstream
-git remote add upstream https://github.com/ORIGINAL_REPO/hanotas.git
+git remote add upstream https://github.com/ORIGINAL_REPO/instaprice.git
 ```
 
 ### 2. **🌿 Crie uma Branch**
@@ -45,7 +45,7 @@ cd frontend
 npm test
 
 # Teste manual completo
-python test_hanotas.py
+python test_instaprice.py
 ```
 
 ### 5. **📤 Envie**
@@ -126,8 +126,8 @@ export default AnalysisPage
 #### **Estilização**
 ```jsx
 // Use Tailwind CSS consistentemente
-<button className="px-4 py-2 bg-hanotas-primary text-white rounded-lg 
-                 hover:bg-hanotas-secondary transition-colors">
+<button className="px-4 py-2 bg-instaprice-primary text-white rounded-lg 
+                 hover:bg-instaprice-secondary transition-colors">
   Analisar
 </button>
 
@@ -355,6 +355,6 @@ Sinta-se à vontade para fazer perguntas! A comunidade está aqui para ajudar. �
 
 ---
 
-**Obrigado por contribuir com o Hanotas! 🚀**
+**Obrigado por contribuir com o Instaprice! 🚀**
 
 *Desenvolvido com ❤️ pelo Grupo 9*

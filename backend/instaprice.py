@@ -40,7 +40,7 @@ except Exception as e:
     )
 
 @CrewBase
-class Hanotas:
+class Instaprice:
     """Sistema Inteligente de Análise de Notas Fiscais usando CrewAI"""
     
     agents_config = 'config/agents.yaml'
@@ -178,7 +178,7 @@ class Hanotas:
 
     @crew
     def crew(self) -> Crew:
-        """Configura e retorna a crew completa do Hanotas com novo Porta-Voz"""
+        """Configura e retorna a crew completa do Instaprice com novo Porta-Voz"""
         return Crew(
             agents=self.agents,
             tasks=self.tasks,

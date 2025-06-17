@@ -1,4 +1,4 @@
-# Hanotas - Sistema Seguro de Análise de Notas Fiscais
+# Instaprice - Sistema Seguro de Análise de Notas Fiscais
 # Dependências otimizadas e seguras
 
 # Core CrewAI Framework

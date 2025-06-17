@@ -18,9 +18,9 @@ class SubprocessCrewAIRunner:
     def __init__(self, websocket_manager=None):
         self.websocket_manager = websocket_manager
         
-    async def run_hanotas(self, inputs):
+    async def run_instaprice(self, inputs):
         """
-        Executa o Hanotas em subprocess e captura output real do terminal
+        Executa o Instaprice em subprocess e captura output real do terminal
         """
         try:
             # Cria script Python temporário para execução
@@ -32,7 +32,7 @@ import json
 # Adiciona o diretório backend ao path
 sys.path.insert(0, "{os.path.dirname(__file__)}")
 
-from hanotas import Hanotas
+from instaprice import Instaprice
 
 def main():
     print("🚀 [SUBPROCESS] Iniciando execução do CrewAI...")
@@ -47,9 +47,9 @@ def main():
     print("=" * 60)
     
     try:
-        # Instancia e executa o Hanotas
-        hanotas = Hanotas()
-        resultado = hanotas.crew().kickoff(inputs=inputs)
+        # Instancia e executa o Instaprice
+        instaprice = Instaprice()
+        resultado = instaprice.crew().kickoff(inputs=inputs)
         
         print("=" * 60)
         print("✅ [SUBPROCESS] Execução concluída!")
@@ -84,7 +84,7 @@ if __name__ == "__main__":
 '''
             
             # Salva script temporário
-            script_path = "/tmp/hanotas_subprocess.py"
+            script_path = "/tmp/instaprice_subprocess.py"
             with open(script_path, "w") as f:
                 f.write(script_content)
             
@@ -229,14 +229,14 @@ if __name__ == "__main__":
 async def run_crewai_subprocess(inputs, websocket_manager=None):
     """Função helper para executar CrewAI via subprocess"""
     runner = SubprocessCrewAIRunner(websocket_manager)
-    return await runner.run_hanotas(inputs)
+    return await runner.run_instaprice(inputs)
 
 if __name__ == "__main__":
     # Teste direto
     test_inputs = {
-        'caminho_zip': '/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Hanotas_2/backend/202401_NFs.zip',
+        'caminho_zip': '/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Instaprice_2/backend/202401_NFs.zip',
         'pergunta_usuario': 'Teste subprocess - mostre dados reais do terminal',
-        'diretorio_dados': '/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Hanotas_2/backend/dados/notasfiscais'
+        'diretorio_dados': '/mnt/b3f9265b-b14c-43a0-adbb-51ada5f71808/Curso I2A2/Instaprice_2/backend/dados/notasfiscais'
     }
     
     async def test():

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Hanotas - Sistema Inteligente de Análise de Notas Fiscais
+Instaprice - Sistema Inteligente de Análise de Notas Fiscais
 Versão Segura e Otimizada - SEM sistema de espionagem
 """
 
@@ -13,18 +13,18 @@ from typing import Dict, Any, Optional
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
 # Imports locais
-from hanotas import Hanotas
+from instaprice import Instaprice
 from config.settings import get_settings, validate_startup_config
 from utils.secure_logger import get_secure_logger, AuditEventType
 from utils.exceptions import (
-    HanotasException, ConfigurationError, FileProcessingError,
+    InstapriceException, ConfigurationError, FileProcessingError,
     get_user_friendly_message, handle_exceptions, COMMON_EXCEPTION_MAPPING
 )
 from utils.input_validator import InputValidator
 
 # Configurações e logger
 settings = get_settings()
-logger = get_secure_logger("hanotas_main")
+logger = get_secure_logger("instaprice_main")
 
 
 @handle_exceptions(COMMON_EXCEPTION_MAPPING)
@@ -89,40 +89,40 @@ def validate_input_files(caminho_zip: str, diretorio_dados: str) -> Dict[str, An
 
 
 @handle_exceptions(COMMON_EXCEPTION_MAPPING)
-def execute_hanotas_analysis(inputs: Dict[str, Any]) -> str:
-    """Executa análise do Hanotas de forma segura."""
-    logger.audit(AuditEventType.SYSTEM_START, "Starting Hanotas analysis")
+def execute_instaprice_analysis(inputs: Dict[str, Any]) -> str:
+    """Executa análise do Instaprice de forma segura."""
+    logger.audit(AuditEventType.SYSTEM_START, "Starting Instaprice analysis")
     
     try:
         # Valida entrada da consulta
         pergunta = inputs.get('pergunta_usuario', '')
         InputValidator.validate_query_string(pergunta)
         
-        # Cria instância do Hanotas
-        hanotas = Hanotas()
+        # Cria instância do Instaprice
+        instaprice = Instaprice()
         
         # Executa análise
-        logger.execution_step("Iniciando crew do Hanotas")
-        result = hanotas.crew().kickoff(inputs=inputs)
+        logger.execution_step("Iniciando crew do Instaprice")
+        result = instaprice.crew().kickoff(inputs=inputs)
         
-        logger.audit(AuditEventType.SYSTEM_STOP, "Hanotas analysis completed successfully")
+        logger.audit(AuditEventType.SYSTEM_STOP, "Instaprice analysis completed successfully")
         return result
         
     except Exception as e:
-        logger.error("Erro durante execução do Hanotas", exception=e)
+        logger.error("Erro durante execução do Instaprice", exception=e)
         raise
 
 
 def main():
     """Função principal segura e otimizada."""
     
-    print("🤖 HANOTAS - Sistema Inteligente de Análise de Notas Fiscais")
+    print("🤖 INSTAPRICE - Sistema Inteligente de Análise de Notas Fiscais")
     print("🔒 VERSÃO SEGURA E OTIMIZADA")
     print("="*60)
     
     try:
         # Inicializa logger
-        logger.audit(AuditEventType.SYSTEM_START, "Hanotas system starting")
+        logger.audit(AuditEventType.SYSTEM_START, "Instaprice system starting")
         
         # 1. Valida ambiente
         logger.execution_step("Validando ambiente")
@@ -164,28 +164,28 @@ def main():
         
         # 5. Executa análise principal
         logger.execution_step("Executando análise principal")
-        result = execute_hanotas_analysis(inputs)
+        result = execute_instaprice_analysis(inputs)
         
         # 6. Apresenta resultados
         print("\n✅ Análise concluída com sucesso!")
         print(f"📋 Resultado:\n{result}")
         
         # Verifica arquivo de sugestões
-        arquivo_sugestoes = "sugestoes_hanotas.md"
+        arquivo_sugestoes = "sugestoes_instaprice.md"
         if os.path.exists(arquivo_sugestoes):
             print(f"💡 Sugestões salvas em: {arquivo_sugestoes}")
         
         print(f"📁 Dados processados em: {diretorio_dados}")
         print("🔒 Análise executada com segurança e auditoria completa")
         
-        logger.audit(AuditEventType.SYSTEM_STOP, "Hanotas system completed successfully")
+        logger.audit(AuditEventType.SYSTEM_STOP, "Instaprice system completed successfully")
         
     except KeyboardInterrupt:
         logger.info("Execução interrompida pelo usuário")
         print("\n⚠️ Execução interrompida pelo usuário")
         sys.exit(1)
         
-    except HanotasException as e:
+    except InstapriceException as e:
         # Exceções conhecidas do sistema
         user_message = get_user_friendly_message(e)
         logger.error("Erro conhecido do sistema", exception=e)

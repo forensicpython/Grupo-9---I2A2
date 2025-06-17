@@ -1,8 +1,8 @@
-# 📦 Guia de Instalação - Hánotas
+# 📦 Guia de Instalação - Instaprice
 
 <div align="center">
 
-![Hánotas Logo](../frontend/src/assets/Hanotas_2.png)
+![Instaprice Logo](../images/Instaprice.png)
 
 **Sistema Inteligente de Análise Fiscal**  
 *Guia completo de instalação e configuração*
@@ -137,7 +137,7 @@ npm install
 #### **2. Obter API Key**
 1. No dashboard, clique em **"API Keys"**
 2. Clique em **"Create API Key"**
-3. Dê um nome (ex: "Hanotas")
+3. Dê um nome (ex: "Instaprice")
 4. Copie a chave gerada
 
 #### **3. Configurar no Projeto**
@@ -159,7 +159,7 @@ GROQ_API_KEY=sua_chave_aqui_colada
 ### **Executar com Docker**
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/hanotas.git
+git clone https://github.com/seu-usuario/instaprice.git
 cd Grupo-9---I2A2
 
 # Configure a API key
@@ -194,7 +194,7 @@ cd frontend
 npm run dev
 
 # Acesse http://localhost:5173
-# Deve carregar a interface do Hánotas
+# Deve carregar a interface do Instaprice
 ```
 
 ### **3. Teste da API Groq**
@@ -449,10 +449,10 @@ DEBUG=false
 npm install -g pm2
 
 # Backend
-pm2 start backend/server.py --name hanotas-backend
+pm2 start backend/server.py --name instaprice-backend
 
 # Frontend (servir via Nginx)
-cp -r frontend/dist/* /var/www/html/hanotas/
+cp -r frontend/dist/* /var/www/html/instaprice/
 ```
 
 ---
@@ -487,7 +487,7 @@ pip-audit
 
 ### **Ajuda e Suporte**
 
-**O Hánotas oferece suporte completo através de:**
+**O Instaprice oferece suporte completo através de:**
 
 - **Central de Ajuda Integrada**: Acessível diretamente na interface
 - **Documentação Técnica**: Guias detalhados e tutoriais
@@ -503,7 +503,7 @@ pip-audit
 ### **Logs Úteis**
 ```bash
 # Backend logs
-tail -f backend/logs/hanotas_*.log
+tail -f backend/logs/instaprice_*.log
 
 # Frontend logs
 # Abra DevTools (F12) -> Console
@@ -522,7 +522,7 @@ journalctl -f
 
 ### ✅ **Instalação Concluída!**
 
-**Agora você pode usar o Hánotas para analisar suas notas fiscais com IA**
+**Agora você pode usar o Instaprice para analisar suas notas fiscais com IA**
 
 [![Get Started](https://img.shields.io/badge/Get%20Started-🚀-blue?style=for-the-badge)](http://localhost:5173)
 
