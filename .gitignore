@@ -1,0 +1,447 @@
+# =============================================================================
+# 🔐 HANOTAS - Arquivos Ignorados pelo Git
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# 🔑 CREDENCIAIS E CONFIGURAÇÕES SENSÍVEIS
+# -----------------------------------------------------------------------------
+.env
+.env.local
+.env.production
+.env.development
+*.key
+*.pem
+*.crt
+secrets/
+credentials/
+
+# -----------------------------------------------------------------------------
+# 🐍 PYTHON
+# -----------------------------------------------------------------------------
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# -----------------------------------------------------------------------------
+# ⚛️ NODE.JS / REACT
+# -----------------------------------------------------------------------------
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage
+.grunt
+
+# Bower dependency directory
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# Snowpack dependency directory
+web_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+out
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+storybook-static
+
+# Rollup.js default build output
+dist/
+
+# Vite
+dist-ssr
+*.local
+
+# -----------------------------------------------------------------------------
+# 📊 DADOS E ARQUIVOS DE TRABALHO
+# -----------------------------------------------------------------------------
+# Dados de entrada
+dados/
+uploads/
+temp/
+tmp/
+*.zip
+*.csv
+*.xlsx
+*.xls
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Outputs
+output/
+results/
+reports/
+*.pdf
+sugestoes_*.md
+resposta_final_*.md
+
+# Arquivos específicos de desenvolvimento (não versionar)
+CLAUDE.md
+CORRECOES_AGENTES.md
+MELHORIAS_IMPLEMENTADAS.md
+ESPIONAGEM_README.md
+
+# Cache
+.cache/
+cache/
+*.cache
+
+# Backup files
+*.backup
+*.bak
+*.old
+
+# -----------------------------------------------------------------------------
+# 💻 SISTEMA OPERACIONAL
+# -----------------------------------------------------------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# -----------------------------------------------------------------------------
+# 🛠️ EDITORES E IDEs
+# -----------------------------------------------------------------------------
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*~
+*.swp
+*.swo
+*~
+.*.swp
+.*.swo
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# -----------------------------------------------------------------------------
+# 🐳 DOCKER
+# -----------------------------------------------------------------------------
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# -----------------------------------------------------------------------------
+# ☁️ CLOUD E DEPLOYMENT
+# -----------------------------------------------------------------------------
+# Vercel
+.vercel
+
+# Netlify
+.netlify
+
+# AWS
+.aws/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# -----------------------------------------------------------------------------
+# 🧪 TESTES E QA
+# -----------------------------------------------------------------------------
+# Test reports
+test-results/
+playwright-report/
+test-results.xml
+coverage.xml
+
+# Selenium
+selenium-debug.log
+
+# -----------------------------------------------------------------------------
+# 📦 BUILDS E DISTRIBUIÇÃO
+# -----------------------------------------------------------------------------
+# Build outputs
+build/
+dist/
+out/
+target/
+
+# Installers
+*.deb
+*.rpm
+*.dmg
+*.exe
+*.msi
+
+# Archives
+*.tar
+*.tar.gz
+*.tar.bz2
+*.zip
+*.rar
+*.7z
+
+# -----------------------------------------------------------------------------
+# 🔍 OUTROS
+# -----------------------------------------------------------------------------
+# Temporary files
+*.tmp
+*.temp
+
+# Lock files (exceto package-lock.json que é importante)
+yarn.lock
+pnpm-lock.yaml
+# Mantemos: package-lock.json
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Configuration files with sensitive data
+config.local.*
+settings.local.*
+
+# =============================================================================
+# 📝 NOTAS IMPORTANTES
+# =============================================================================
+#
+# Este .gitignore foi criado especificamente para o projeto Hanotas
+# Ele protege credenciais, dados sensíveis e arquivos temporários
+#
+# Se precisar versionar algum arquivo listado aqui, use:
+# git add -f arquivo_especifico
+#
+# =============================================================================

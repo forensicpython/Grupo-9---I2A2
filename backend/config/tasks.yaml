@@ -1,0 +1,258 @@
+extracao_task:
+  name: Extração de Arquivos Fiscais
+  description: |
+    Extraia o arquivo ZIP fornecido pelo usuário para o diretório especificado.
+    
+    ARQUIVO ZIP: {caminho_zip}
+    DIRETÓRIO DESTINO: {diretorio_dados}
+    
+    O arquivo deve conter os CSVs de notas fiscais no formato esperado:
+    - *cabecalho*.csv (dados dos cabeçalhos das notas fiscais)
+    - *itens*.csv (dados dos itens das notas fiscais)
+    
+    Certifique-se de:
+    - Usar exatamente o caminho do arquivo ZIP fornecido: {caminho_zip}
+    - Extrair para o diretório dados/notasfiscais (relativo ao arquivo)
+    - Limpar o diretório de destino antes da extração
+    - Verificar se os arquivos foram extraídos corretamente
+    - Identificar especificamente os arquivos CSV relacionados a notas fiscais
+    - Reportar o status da extração de forma clara
+  expected_output: |
+    Relatório detalhado da extração contendo:
+    - Status da operação (sucesso/erro)
+    - Número de arquivos extraídos
+    - Lista dos CSVs encontrados
+    - Identificação dos arquivos de cabeçalho e itens
+    - Preparação da base RAG
+  output_file: ""
+
+validacao_task:
+  name: Validação e Estruturação Pydantic
+  description: |
+    Valide e estruture os arquivos CSV extraídos usando modelos Pydantic rigorosos.
+    
+    DIRETÓRIO DOS DADOS: {diretorio_dados}
+    
+    Execute as seguintes validações nos arquivos do diretório {diretorio_dados}:
+    - Carregue os CSVs com delimitador correto (vírgula)
+    - Aplique modelos Pydantic para validação de tipos e consistência
+    - Identifique e reporte registros inválidos
+    - Gere DataFrames limpos e validados
+    - Salve versões validadas dos arquivos
+    
+    Foque especialmente em:
+    - Validação de datas no formato correto
+    - Validação de valores numéricos positivos
+    - Consistência entre quantidade × valor unitário = valor total
+    - Validação de CNPJs
+  expected_output: |
+    Relatório de validação contendo:
+    - Número de registros válidos vs. total
+    - Lista dos principais erros encontrados
+    - Status de cada arquivo processado
+    - Confirmação dos DataFrames validados salvos
+    - Estatísticas de qualidade dos dados
+  context:
+    - extracao_task
+  output_file: ""
+
+interpretacao_task:
+  name: Interpretação de Linguagem Natural
+  description: |
+    Interprete a pergunta do usuário em linguagem natural e prepare o contexto
+    para execução de consultas precisas.
+    
+    PERGUNTA DO USUÁRIO: {pergunta_usuario}
+    DIRETÓRIO DOS DADOS: {diretorio_dados}
+    
+    Analise a pergunta "{pergunta_usuario}" considerando:
+    - Identificação de entidades (datas, valores, produtos, fornecedores)
+    - Tipo de operação solicitada (soma, filtro, comparação, agrupamento)
+    - Contexto temporal (períodos específicos, comparações)
+    - Categorização de produtos ou serviços
+    
+    Use a ferramenta RAG para:
+    - Entender o contexto semântico dos dados disponíveis em {diretorio_dados}
+    - Identificar campos relevantes nos CSVs
+    - Mapear termos da pergunta para estrutura dos dados
+    
+    Prepare instruções claras para o Executor de Consultas.
+  expected_output: |
+    Interpretação estruturada contendo:
+    - Análise da pergunta em linguagem natural
+    - Entidades identificadas (datas, valores, categorias)
+    - Tipo de consulta necessária
+    - Campos e tabelas relevantes
+    - Contexto RAG para orientar a consulta
+    - Instruções precisas paraexecução
+  context:
+    - validacao_task
+  output_file: ""
+
+execucao_task:
+  name: Execução de Consultas de Dados
+  description: |
+    Execute as consultas Pandas necessárias nos dados validados para responder
+    à pergunta do usuário com precisão.
+    
+    PERGUNTA DO USUÁRIO: {pergunta_usuario}
+    DIRETÓRIO DOS DADOS: {diretorio_dados}
+    
+    INSTRUÇÕES OBRIGATÓRIAS:
+    - NUNCA forneça respostas genéricas com "Empresa A", "Empresa B", etc.
+    - SEMPRE extraia os nomes REAIS das empresas dos dados
+    - SEMPRE inclua os CNPJs ESPECÍFICOS dos dados reais
+    - SEMPRE use dados CONCRETOS dos arquivos CSV
+    
+    Baseando-se na interpretação da pergunta "{pergunta_usuario}":
+    - Carregue os DataFrames validados do diretório {diretorio_dados}
+    - Execute operações Pandas apropriadas (filter, groupby, sum, mean, etc.)
+    - Realize joins entre cabeçalhos e itens quando necessário
+    - Calcule agregações e estatísticas solicitadas
+    - Extraia nomes reais das empresas e CNPJs dos dados
+    - Trate casos especiais (datas, categorias, comparações)
+    
+    Garanta que:
+    - Os cálculos sejam precisos e auditáveis
+    - Os resultados contenham dados REAIS (nomes e CNPJs específicos)
+    - Os resultados sejam formatados adequadamente
+    - Casos de dados faltantes sejam tratados
+    - Contexto temporal seja respeitado
+  expected_output: |
+    Resultado da consulta contendo:
+    - Nomes REAIS e COMPLETOS das empresas (nunca genéricos)
+    - CNPJs ESPECÍFICOS de cada empresa entre parênteses
+    - Dados específicos solicitados (valores, quantidades, listas)
+    - Cálculos e agregações realizadas
+    - Estatísticas complementares relevantes
+    - Detalhamento dos filtros aplicados
+    - Contexto dos resultados (períodos, categorias, etc.)
+    - Dados formatados para apresentação humanizada
+  context:
+    - interpretacao_task
+  output_file: ""
+
+comunicacao_task:
+  name: Comunicação Humanizada dos Resultados
+  description: |
+    Transforme os resultados técnicos da consulta em uma resposta clara,
+    educada e envolvente para o usuário.
+    
+    IMPORTANTE: Esta resposta será processada pelo Porta-Voz Eloquente.
+    Prepare os dados de forma estruturada para uso interno da crew.
+    
+    REGRA FUNDAMENTAL - NUNCA IGNORE:
+    - PROIBIDO usar nomes genéricos como "Empresa A", "Empresa B", etc.
+    - OBRIGATÓRIO usar nomes REAIS e COMPLETOS das empresas
+    - OBRIGATÓRIO incluir CNPJs ESPECÍFICOS entre parênteses
+    - Se os dados reais não estiverem disponíveis, solicite claramente
+    
+    Crie uma resposta que:
+    - Use linguagem natural e acessível
+    - Destaque os insights principais com formatação
+    - Inclua emojis relevantes para tornar amigável
+    - Contextualize os números com explicações
+    - Mantenha tom profissional mas humanizado
+    - Forneça perspectiva sobre os resultados
+    
+    Estruture a resposta com:
+    - Resposta direta à pergunta com dados REAIS
+    - Contexto e detalhes relevantes
+    - Formatação clara (markdown)
+    - Observações úteis adicionais
+  expected_output: |
+    Resposta humanizada estruturada para o Porta-Voz contendo:
+    - Nomes REAIS e COMPLETOS das empresas (NUNCA genéricos)
+    - CNPJs ESPECÍFICOS entre parênteses após cada nome
+    - Resposta clara e direta à pergunta original
+    - Contextualização dos resultados
+    - Formatação atrativa com emojis e markdown
+    - Insights adicionais relevantes
+    - Tom educado, profissional e acessível
+    - Informações bem estruturadas para consolidação final
+  context:
+    - execucao_task
+  output_file: ""
+
+sugestoes_task:
+  name: Geração de Sugestões Inteligentes
+  description: |
+    Gere exatamente 3 sugestões inteligentes de análises adicionais baseadas
+    nos resultados obtidos e no contexto da pergunta original.
+    
+    IMPORTANTE: Estas sugestões serão integradas pelo Porta-Voz Eloquente.
+    Forneça sugestões estruturadas para uso interno da crew.
+    
+    As sugestões devem:
+    - Ser complementares à análise realizada
+    - Explorar diferentes dimensões dos dados (tempo, geografia, categoria)
+    - Estimular descobertas e aprofundamento
+    - Ser específicas e acionáveis
+    - Considerar o contexto de negócio das notas fiscais
+    
+    Padrão das sugestões:
+    1. Aprofundamento da análise atual
+    2. Comparação ou análise temporal
+    3. Nova dimensão ou perspectiva
+    
+    Use linguagem envolvente e curiosa para despertar interesse.
+  expected_output: |
+    Exatamente 3 sugestões estruturadas para o Porta-Voz:
+    💡 **Sugestões de análise:**
+    1. 🔍 [Pergunta de aprofundamento específica]
+    2. 📊 [Pergunta de comparação ou contexto temporal]
+    3. 🌍 [Pergunta explorando nova dimensão]
+    
+    Cada sugestão deve ser:
+    - Específica e clara
+    - Relacionada aos dados disponíveis
+    - Estimulante para novas descobertas
+    - Formulada como pergunta direta
+    - Preparada para integração elegante
+  context:
+    - comunicacao_task
+  output_file: ""
+
+resposta_final_task:
+  name: Resposta Final Eloquente
+  description: |
+    Como Porta-Voz Eloquente da crew Hanotas, consolide todas as informações
+    dos agentes anteriores em uma resposta magistral e definitiva ao usuário.
+    
+    PERGUNTA ORIGINAL DO USUÁRIO: {pergunta_usuario}
+    
+    MISSÃO: Criar uma experiência excepcional combinando:
+    - A análise humanizada do RP Lúdico (mantenha TODOS os dados reais)
+    - As sugestões inteligentes do Sugestor Visionário
+    - Sua própria eloquência e insights adicionais
+    
+    DIRETRIZES OBRIGATÓRIAS:
+    - Preserve TODOS os nomes reais das empresas e CNPJs específicos
+    - Use linguagem elegante, educada e cativante
+    - Demonstre inteligência através de insights refinados
+    - Incorpore as sugestões do Visionário de forma natural
+    - Seja criativo na apresentação, mas preciso nos dados
+    
+    ESTRUTURA ESPERADA:
+    1. 🎩 Cumprimento educado e contextualização elegante
+    2. 📊 Apresentação magistral dos resultados (dados reais preservados)
+    3. 🧠 Insights inteligentes e observações refinadas  
+    4. 💡 Integração elegante das sugestões de análises futuras
+    5. ✨ Encerramento inspirador que convide a mais exploração
+    
+    PERSONALIDADE: Eloquente, Inteligente, Criativo, Educado, Inspirador
+  expected_output: |
+    Resposta final eloquente contendo:
+    - Cumprimento educado ao usuário
+    - TODOS os dados reais preservados (empresas, CNPJs, valores)
+    - Apresentação elegante e cativante dos resultados
+    - Insights inteligentes adicionais
+    - Integração natural das sugestões do Visionário
+    - Linguagem refinada e educada
+    - Formatação atrativa e profissional
+    - Encerramento inspirador
+    - Tom de embaixador corporativo de elite
+  context:
+    - comunicacao_task
+    - sugestoes_task
+  output_file: "resposta_final_porta_voz.md"

@@ -1,0 +1,63 @@
+# Hanotas - Sistema Seguro de Análise de Notas Fiscais
+# Dependências otimizadas e seguras
+
+# Core CrewAI Framework
+crewai>=0.76.0,<1.0.0
+crewai-tools>=0.8.0,<1.0.0
+
+# Data Processing (versões fixas para segurança)
+pandas==2.1.4
+numpy==1.24.4
+pydantic==2.5.2
+
+# API e HTTP
+requests==2.31.0
+httpx==0.25.2
+
+# Processamento de Arquivos
+python-dotenv==1.0.0
+py7zr==0.20.8
+rarfile==4.1
+
+# Machine Learning e LLM
+sentence-transformers==2.2.2
+scikit-learn==1.3.2
+transformers==4.36.2
+
+# Logging e Monitoramento
+structlog==23.2.0
+loguru==0.7.2
+
+# Validação e Segurança
+validators==0.22.0
+cryptography==41.0.8
+bcrypt==4.1.2
+
+# Performance e Cache
+lru-dict==1.3.0
+diskcache==5.6.3
+
+# Desenvolvimento e Testes
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Documentação
+sphinx==7.2.6
+sphinx-rtd-theme==1.3.0
+
+# Utilitários
+tqdm==4.66.1
+colorama==0.4.6
+click==8.1.7
+
+# Análise de Código
+bandit==1.7.5
+safety==2.3.5
+
+# Compatibilidade com diferentes sistemas
+python-dateutil==2.8.2
+pytz==2023.3
