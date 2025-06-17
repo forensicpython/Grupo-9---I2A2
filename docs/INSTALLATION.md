@@ -216,45 +216,33 @@ npm run dev
 
 <div align="center">
 
-### 🔐 **Autenticação Segura**
-*Tela de login elegante com suporte a contas demonstrativas*
-
-![Tela de Login](images/login-screen.png)
+### 🔐 **[Autenticação Segura](images/login-screen.png)**
+*Tela de login elegante com suporte a contas demonstrativas e autenticação criptografada*
 
 ---
 
-### ⚙️ **Configuração Inteligente**
-*Interface avançada para configuração da API Groq com seleção de modelos*
-
-![Configuração de API](images/api-config.png)
+### ⚙️ **[Configuração Inteligente](images/api-config.png)**
+*Interface avançada para configuração da API Groq com seleção de modelos e teste de conectividade*
 
 ---
 
-### 📁 **Upload Simplificado**
-*Sistema drag & drop para arquivos ZIP, CSV e Excel (até 100MB)*
-
-![Upload de Arquivos](images/file-upload.png)
+### 📁 **[Upload Simplificado](images/file-upload.png)**
+*Sistema drag & drop para arquivos ZIP, CSV e Excel com limite de 100MB e validação automática*
 
 ---
 
-### 🤖 **Análise Fiscal Inteligente**
-*Chat interativo com 7 agentes CrewAI e terminal de logs em tempo real*
-
-![Interface de Análise](images/analysis-interface.png)
+### 🤖 **[Análise Fiscal Inteligente](images/analysis-interface.png)**
+*Chat interativo com 7 agentes CrewAI, terminal de logs em tempo real e sugestões automáticas*
 
 ---
 
-### 💡 **Suporte Integrado**
-*Central de ajuda completa com guias visuais e documentação técnica*
-
-![Central de Ajuda](images/help-center.png)
+### 💡 **[Suporte Integrado](images/help-center.png)**
+*Central de ajuda completa com guias visuais, documentação técnica e início rápido*
 
 ---
 
-### 👥 **Nossa Equipe**
-*Grupo 9 - Especialistas em Agentes Inteligentes para Análise Fiscal*
-
-![Sobre Nós - Grupo 9](images/about-us.png)
+### 👥 **[Nossa Equipe](images/about-us.png)**
+*Grupo 9 - Especialistas multidisciplinares em Agentes Inteligentes para Análise Fiscal*
 
 </div>
 
