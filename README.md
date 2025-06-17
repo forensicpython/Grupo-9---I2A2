@@ -41,12 +41,24 @@ O **Hanotas** é um sistema inovador que utiliza **7 agentes de IA especializado
 
 <div align="center">
 
+### 🔐 **Tela de Login Elegante**
 ![Login Screen](docs/images/login-screen.png)
+
+### 👥 **Sobre Nossa Equipe - Grupo 9**
 ![About Us](docs/images/about-us.png)
+
+### 💡 **Central de Ajuda Integrada**
 ![Help Center](docs/images/help-center.png)
+
+### ⚙️ **Configuração Avançada de API**
 ![API Config](docs/images/api-config.png)
+
+### 📁 **Interface de Upload Intuitiva**
 ![File Upload](docs/images/file-upload.png)
+
+### 🤖 **Sistema de Análise Fiscal Inteligente**
 ![Analysis Interface](docs/images/analysis-interface.png)
+
 </div>
 
 ---
