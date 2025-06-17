@@ -41,29 +41,69 @@ O **Hanotas** é um sistema inovador que utiliza **7 agentes de IA especializado
 
 <div align="center">
 
-### 🔐 Tela de Login Elegante e Segura
-*Autenticação com interface moderna, logo personalizado e contas de demonstração*
 ![Login Screen](docs/images/login-screen.png)
+![About Us](docs/images/about-us.png)
+![Help Center](docs/images/help-center.png)
+![API Config](docs/images/api-config.png)
+![File Upload](docs/images/file-upload.png)
+![Analysis Interface](docs/images/analysis-interface.png)
+
+### 🔐 Tela de Login Elegante e Segura
+*Autenticação com interface moderna, logo personalizado "Hánotas - Dialogando com suas notas fiscais" e contas de demonstração*
+
+**Características:**
+- Design dark theme elegante
+- Campo usuário: "analista" 
+- Conexão segura e criptografada
+- Contas de demonstração disponíveis
 
 ### 👥 Sobre Nós - Grupo 9
 *Apresentação da equipe multidisciplinar e missão do projeto I2A2*
-![About Us](docs/images/about-us.png)
+
+**Destaques:**
+- Equipe: Daniele, Erico, Erike, Gleison, Gustavo, Juliana (Responsável)
+- Desafio I2A2 - Agentes Inteligentes 2025
+- Missão: Democratizar análise fiscal com IA
+- Valores: Inovação, Qualidade, Colaboração, Impacto
 
 ### 📖 Central de Ajuda Completa
 *Guia visual com 6 passos, agentes inteligentes e informações técnicas*
-![Help Center](docs/images/help-center.png)
+
+**Conteúdo:**
+- 🚀 **Início Rápido**: 6 passos visuais (Configure API → Upload ZIP → Pergunte → Monitore → Receba Resposta → Insights)
+- 🤖 **Agentes Inteligentes**: 7 agentes especializados detalhados
+- ⚙️ **Como Funciona**: Fluxo de processamento completo
+- 💡 **Powered by**: CrewAI + Groq API + FastAPI
 
 ### 🔧 Configuração de API Groq Simplificada
-*Configure sua chave API, selecione modelo de IA (Qwen QWQ 32B) e teste a conexão*
-![API Config](docs/images/api-config.png)
+*Configure sua chave API, selecione modelo de IA e teste a conexão*
+
+**Funcionalidades:**
+- Campo API mascarado por segurança
+- Seletor de modelos (Qwen QWQ 32B destacado)
+- Botão "Testar Modelo Selecionado"
+- Métricas: 0 arquivos, 5 modelos, 3 relatórios
 
 ### 📤 Upload de Arquivos com Drag & Drop
-*Envie arquivos ZIP, CSV ou Excel com interface intuitiva e suporte a múltiplos formatos*
-![File Upload](docs/images/file-upload.png)
+*Envie arquivos ZIP, CSV ou Excel com interface intuitiva*
+
+**Características:**
+- Interface drag & drop elegante
+- Suporte: ZIP, CSV, Excel (.xlsx, .xls)
+- Limite máximo: 100MB
+- Múltiplos arquivos permitidos
+- Seção "Arquivos a Processar"
 
 ### 💬 Interface de Análise Inteligente Completa
 *Chat em linguagem natural, terminal verbose integrado e sugestões automáticas*
-![Analysis Interface](docs/images/analysis-interface.png)
+
+**Recursos:**
+- Assistente: llama-3.3-70b-versatile
+- Chat com perguntas em linguagem natural
+- Terminal Verbose com 674+ eventos em tempo real
+- Sugestões Inteligentes automáticas
+- Botão "Exportar Chat" para PDF
+- Status online de todos os componentes
 
 </div>
 

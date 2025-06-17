@@ -1,0 +1,17 @@
+# Pasta para Screenshots
+
+Esta pasta está pronta para receber os screenshots do sistema Hánotas.
+
+## Screenshots Planejados:
+- login-screen.png
+- about-us.png  
+- help-center.png
+- api-config.png
+- file-upload.png
+- analysis-interface.png
+
+Para adicionar os screenshots:
+1. Capture as telas do sistema em funcionamento
+2. Salve com os nomes listados acima
+3. Faça commit das imagens
+4. Os screenshots aparecerão automaticamente no README.md
