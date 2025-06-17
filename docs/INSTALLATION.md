@@ -188,7 +188,7 @@ curl http://localhost:8000/health
 # Resposta esperada: {"status": "healthy"}
 ```
 
-### **2. Teste o Frontend**
+### **2. Teste do Frontend**
 ```bash
 cd frontend
 npm run dev
@@ -197,49 +197,66 @@ npm run dev
 # Deve carregar a interface do Hánotas
 ```
 
-### 🔐 **Tela de Login Elegante e Segura**
-
-![Tela de Login](images/login-screen.png)
-
 ### **3. Teste da API Groq**
+```bash
+# No frontend, vá para "Configurações"
+# Clique em "Testar Conexão"
+# Deve mostrar "✅ Conexão bem-sucedida"
+```
 
-**Configuração da API:**
-1. No frontend, acesse a seção "Configurações"
-2. Insira sua chave API do Groq
-3. Selecione o modelo desejado (recomendado: Qwen QWQ 32B)
-4. Clique em "Testar Modelo Selecionado"
-5. Deve mostrar "✅ Conexão bem-sucedida"
-
-### ⚙️ **Configuração Avançada de API Groq**
-
-![Configuração de API](images/api-config.png)
-
-### **4. Teste de Upload**
-
-**Como testar o upload de arquivos:**
-1. Prepare um arquivo ZIP com CSVs de notas fiscais
-2. Acesse a área de upload
-3. Arraste e solte o arquivo ou clique para selecionar
-4. Verifique se o arquivo é aceito (máximo 100MB)
-5. Confirme se aparece na lista "Arquivos a Processar"
-
-### 📁 **Interface de Upload Intuitiva**
-
-![Upload de Arquivos](images/file-upload.png)
-
-### **5. Teste Completo de Análise**
-
-**Fluxo completo de teste:**
+### **4. Teste Completo**
 1. Faça upload de um arquivo ZIP com CSVs
 2. Digite uma pergunta: "Quantas notas fiscais temos?"
 3. Monitore o processamento no terminal
-4. Acompanhe os logs dos agentes CrewAI
-5. Verifique se recebe uma resposta detalhada
-6. Teste as sugestões inteligentes automáticas
+4. Verifique se recebe uma resposta
 
-### 🤖 **Sistema de Análise Fiscal Inteligente**
+---
+
+## 📱 **Interface do Sistema**
+
+<div align="center">
+
+### 🔐 **Autenticação Segura**
+*Tela de login elegante com suporte a contas demonstrativas*
+
+![Tela de Login](images/login-screen.png)
+
+---
+
+### ⚙️ **Configuração Inteligente**
+*Interface avançada para configuração da API Groq com seleção de modelos*
+
+![Configuração de API](images/api-config.png)
+
+---
+
+### 📁 **Upload Simplificado**
+*Sistema drag & drop para arquivos ZIP, CSV e Excel (até 100MB)*
+
+![Upload de Arquivos](images/file-upload.png)
+
+---
+
+### 🤖 **Análise Fiscal Inteligente**
+*Chat interativo com 7 agentes CrewAI e terminal de logs em tempo real*
 
 ![Interface de Análise](images/analysis-interface.png)
+
+---
+
+### 💡 **Suporte Integrado**
+*Central de ajuda completa com guias visuais e documentação técnica*
+
+![Central de Ajuda](images/help-center.png)
+
+---
+
+### 👥 **Nossa Equipe**
+*Grupo 9 - Especialistas em Agentes Inteligentes para Análise Fiscal*
+
+![Sobre Nós - Grupo 9](images/about-us.png)
+
+</div>
 
 ---
 
@@ -480,32 +497,14 @@ pip-audit
 
 ## 📞 **Suporte**
 
-### **Central de Ajuda Integrada**
+### **Ajuda e Suporte**
 
-**O Hánotas possui uma central de ajuda completa acessível diretamente na interface:**
+**O Hánotas oferece suporte completo através de:**
 
-- **Início Rápido**: 6 passos visuais para começar
-- **Sobre o Hánotas**: Descrição técnica completa
-- **Agentes Inteligentes**: Detalhamento dos 7 agentes CrewAI
-- **Como Funciona**: Fluxo de processamento explicado
-- **Tecnologias**: CrewAI + Groq API + FastAPI
-
-### 💡 **Central de Ajuda Completa e Interativa**
-
-![Central de Ajuda](images/help-center.png)
-
-### **Sobre Nossa Equipe**
-
-**Conheça o Grupo 9 - Equipe multidisciplinar do desafio I2A2:**
-
-- **Missão**: Desenvolver agentes inteligentes para análise fiscal
-- **Tecnologias**: CrewAI, RAG, modelos avançados de IA
-- **Contato**: Informações completas da equipe
-- **Juliana**: Responsável principal do projeto
-
-### 👥 **Equipe Multidisciplinar - Grupo 9**
-
-![Sobre Nós - Grupo 9](images/about-us.png)
+- **Central de Ajuda Integrada**: Acessível diretamente na interface
+- **Documentação Técnica**: Guias detalhados e tutoriais
+- **Equipe Especializada**: Grupo 9 - Agentes Inteligentes
+- **Suporte Comunitário**: GitHub Issues e Discussions
 
 ### **Recursos de Ajuda Externa**
 - 📖 **Documentação**: [README.md](../README.md)
