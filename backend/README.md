@@ -215,7 +215,7 @@ Este projeto está sob licença MIT. Veja o arquivo LICENSE para mais detalhes.
 Para suporte e dúvidas:
 - Execute `python test_hanotas.py` para diagnóstico
 - Verifique logs em `logs/`
-- Consulte a documentação em `CLAUDE.md`
+- Consulte a documentação técnica do projeto
 
 ---
 
