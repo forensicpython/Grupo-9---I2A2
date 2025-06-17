@@ -46,36 +46,54 @@ magick input.png -quality 85 -resize 1920x1080> output.png
 
 ### ✅ **Capturar Estas Telas:**
 
-1. **Dashboard Principal** (`dashboard.png`)
-   - Tela inicial com todos os menus
-   - Central de ajuda visível
-   - Interface limpa e organizada
+1. **Tela de Login** (`login-screen.png`) ✅ **CAPTURADO**
+   - Interface de autenticação elegante
+   - Logo do Hánotas personalizado
+   - Campos de usuário e senha
+   - Contas de demonstração disponíveis
+   - Conexão segura e criptografada
 
-2. **Configuração de API** (`api-config.png`)
-   - Modal/página de configuração
-   - Campo para chave Groq
-   - Botão de teste de conexão
+2. **Sobre Nós - Grupo 9** (`about-us.png`) ✅ **CAPTURADO**
+   - Apresentação da equipe multidisciplinar
+   - Informações do desafio I2A2 - Agentes Inteligentes
+   - Lista completa dos integrantes com emails
+   - Missão e valores do projeto
+   - Destaque para Juliana como responsável
+   - Descrição das tecnologias utilizadas (CrewAI, RAG, modelos avançados)
 
-3. **Interface de Análise** (`analysis-interface.png`)
-   - Upload de arquivo
-   - Campo de pergunta
-   - Área de resposta
-   - Chat completo
+3. **Central de Ajuda** (`help-center.png`) ✅ **CAPTURADO**
+   - Início Rápido com 6 passos visuais
+   - Seção "Sobre o Hánotas" com descrição técnica
+   - "Agentes Inteligentes" detalhando os 7 agentes
+   - "Como Funciona" com fluxo de processamento
+   - Informações sobre "Powered by: CrewAI + Groq API + FastAPI"
+   - Porta-Voz Eloquente destacado
 
-4. **Terminal Verbose** (`terminal-logs.png`)
-   - Logs em tempo real
-   - Processamento dos agentes
-   - WebSocket funcionando
+4. **Configuração de API** (`api-config.png`) ✅ **CAPTURADO**
+   - Interface de configuração da API Groq
+   - Campo para chave API (mascarado por segurança)
+   - Seletor de modelo de IA (Qwen QWQ 32B destacado)
+   - Botão "Testar Modelo Selecionado"
+   - Métricas do dashboard (arquivos processados, modelos disponíveis, relatórios)
 
-5. **Resultados de Análise** (`analysis-results.png`)
-   - Resposta formatada
-   - Insights gerados
-   - Sugestões automáticas
+5. **Upload de Arquivos** (`file-upload.png`) ✅ **CAPTURADO**
+   - Interface drag & drop elegante
+   - Suporte a ZIP, CSV, Excel (.xlsx, .xls)
+   - Área de arrastar e soltar arquivos
+   - Indicadores de formatos suportados
+   - Limite máximo de 100MB
+   - Múltiplos arquivos permitidos
+   - Seção "Arquivos a Processar"
 
-6. **Mobile/Responsivo** (`mobile-interface.png`)
-   - Interface em dispositivo móvel
-   - Menu hamburger
-   - Layout responsivo
+6. **Interface de Análise Completa** (`analysis-interface.png`) ✅ **CAPTURADO**
+   - Assistente de Análise Fiscal (llama-3.3-70b-versatile)
+   - Campo de pergunta em linguagem natural
+   - Chat completo com respostas detalhadas
+   - Terminal Verbose integrado - Agentes CrewAI
+   - Logs em tempo real com 674 eventos
+   - Sugestões Inteligentes automáticas
+   - Botão "Exportar Chat" para PDF
+   - Status online dos componentes
 
 ## 🎨 **Diretrizes de Design**
 

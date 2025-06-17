@@ -26,12 +26,13 @@ O **Hanotas** é um sistema inovador que utiliza **7 agentes de IA especializado
 ### ✨ **Principais Funcionalidades**
 
 - 🤖 **7 Agentes Especializados** trabalhando em sequência otimizada
+- 📤 **Upload Inteligente** com drag & drop para ZIP, CSV e Excel
 - 💬 **Perguntas em Linguagem Natural** - "Quais os maiores fornecedores?"
 - 📊 **Análises Inteligentes** com dados reais (empresas, CNPJs, valores)
 - 🎭 **Respostas Humanizadas** com formatação e emojis
 - 💡 **Sugestões Automáticas** para novas análises
 - 📱 **Interface Moderna** responsiva e intuitiva
-- 🔄 **Processamento em Tempo Real** com logs verbose
+- 🔄 **Processamento em Tempo Real** com terminal verbose integrado
 - 📄 **Exportação em PDF** de conversas completas
 
 ---
@@ -40,17 +41,29 @@ O **Hanotas** é um sistema inovador que utiliza **7 agentes de IA especializado
 
 <div align="center">
 
-### 🏠 Dashboard Principal
-![Dashboard](docs/images/dashboard.png)
+### 🔐 Tela de Login Elegante e Segura
+*Autenticação com interface moderna, logo personalizado e contas de demonstração*
+![Login Screen](docs/images/login-screen.png)
 
-### 🔧 Configuração de API
+### 👥 Sobre Nós - Grupo 9
+*Apresentação da equipe multidisciplinar e missão do projeto I2A2*
+![About Us](docs/images/about-us.png)
+
+### 📖 Central de Ajuda Completa
+*Guia visual com 6 passos, agentes inteligentes e informações técnicas*
+![Help Center](docs/images/help-center.png)
+
+### 🔧 Configuração de API Groq Simplificada
+*Configure sua chave API, selecione modelo de IA (Qwen QWQ 32B) e teste a conexão*
 ![API Config](docs/images/api-config.png)
 
-### 💬 Interface de Análise
-![Analysis Interface](docs/images/analysis-interface.png)
+### 📤 Upload de Arquivos com Drag & Drop
+*Envie arquivos ZIP, CSV ou Excel com interface intuitiva e suporte a múltiplos formatos*
+![File Upload](docs/images/file-upload.png)
 
-### 🖥️ Terminal Verbose
-![Terminal Logs](docs/images/terminal-logs.png)
+### 💬 Interface de Análise Inteligente Completa
+*Chat em linguagem natural, terminal verbose integrado e sugestões automáticas*
+![Analysis Interface](docs/images/analysis-interface.png)
 
 </div>
 
@@ -168,12 +181,13 @@ graph TD
 
 ### 🎯 **Como Usar**
 
-1. **📤 Upload**: Envie um arquivo ZIP com CSVs de notas fiscais
-2. **⚙️ Configure**: Adicione sua chave API Groq
-3. **💬 Pergunte**: Digite sua pergunta em linguagem natural
-4. **👀 Monitore**: Acompanhe o processamento no terminal verbose
-5. **📊 Analise**: Receba insights detalhados e sugestões
-6. **📄 Exporte**: Baixe o relatório completo em PDF
+1. **🔐 Login**: Acesse com suas credenciais ou use conta de demonstração
+2. **⚙️ Configure**: Adicione sua chave API Groq e selecione o modelo (ex: Qwen QWQ 32B)
+3. **📤 Upload**: Envie um arquivo ZIP com CSVs de notas fiscais
+4. **💬 Pergunte**: Digite sua pergunta em linguagem natural
+5. **👀 Monitore**: Acompanhe o processamento no terminal verbose integrado
+6. **📊 Analise**: Receba insights detalhados e sugestões inteligentes
+7. **📄 Exporte**: Baixe o relatório completo em PDF
 
 ### 📝 **Exemplos de Perguntas**
 
@@ -187,6 +201,12 @@ graph TD
 ```
 
 ### 🎨 **Formato dos Dados**
+
+#### **Formatos Suportados:**
+- **📁 Arquivos ZIP** com notas fiscais (máximo 100MB)
+- **📊 Planilhas CSV** com dados estruturados  
+- **📈 Arquivos Excel** (.xlsx, .xls)
+- **🔄 Múltiplos arquivos** permitidos
 
 #### **Estrutura Esperada do ZIP:**
 ```
@@ -213,8 +233,9 @@ TIMEOUTS = {
 ```
 
 #### **Modelos LLM Suportados:**
-- `llama-3.1-8b-instant` (padrão, rápido)
-- `llama-3.3-70b-versatile` (mais inteligente)
+- `llama-3.3-70b-versatile` (usado na interface de análise)
+- `qwen-qwq-32b` (modelo destacado na configuração)
+- `llama-3.1-8b-instant` (rápido e eficiente)
 - `llama3-8b-8192` (contexto grande)
 
 ---
@@ -270,7 +291,8 @@ cd backend && python -m uvicorn server:app --host 0.0.0.0 --port 8000
 - Histórico de conversas
 
 ### 🌐 **WebSocket Real-time**
-- Logs verbose em tempo real
+- Terminal verbose integrado
+- Logs dos agentes em tempo real
 - Heartbeat automático
 - Reconexão inteligente
 
@@ -280,6 +302,9 @@ cd backend && python -m uvicorn server:app --host 0.0.0.0 --port 8000
 - Dados preservados
 
 ### 🛡️ **Segurança**
+- Sistema de autenticação integrado
+- Contas de demonstração disponíveis
+- Conexão segura e criptografada
 - Validação rigorosa de entrada
 - Sanitização de dados
 - Rate limiting

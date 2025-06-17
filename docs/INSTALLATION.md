@@ -75,6 +75,7 @@ npm run dev
 
 ### **5. Acesse o Sistema**
 - **Frontend**: http://localhost:5173
+- **Login**: Use "analista" ou contas de demonstração disponíveis
 - **API Backend**: http://localhost:8000
 - **Documentação API**: http://localhost:8000/docs
 
@@ -251,6 +252,9 @@ cp -r dist/* /var/www/html/
 
 #### **Modelos Disponíveis**
 ```bash
+# Modelo destacado na interface
+MODEL=qwen-qwq-32b
+
 # Rápido (padrão)
 MODEL=llama-3.1-8b-instant
 
