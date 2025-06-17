@@ -50,7 +50,10 @@ O **Hanotas** é um sistema inovador que utiliza **7 agentes de IA especializado
 
 ### 🔐 Tela de Login Elegante e Segura
 *Autenticação com interface moderna, logo personalizado "Hánotas - Dialogando com suas notas fiscais" e contas de demonstração*
+<div align="center">
+![Login Screen](docs/images/login-screen.png)
 
+</div>
 **Características:**
 - Design dark theme elegante
 - Campo usuário: "analista" 
